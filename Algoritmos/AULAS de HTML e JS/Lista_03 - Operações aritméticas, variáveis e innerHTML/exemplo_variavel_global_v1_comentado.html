@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variavel Global</title>
+  </head>
+  <body>
+    <button onclick="incrementar()">Contar</button>
+  </body>
+</html>
+
+<script>
+  function incrementar() {
+    var contador = 0; // A variável "contador" é declarada como "local", pois está dentro da função e pertence somente a ela
+
+    contador = contador + 1; // atualizando o valor do contador para "seu próprio valor atual + 1"
+    
+    alert("Contagem atual " + contador); // exibindo o valor atual do contador
+  }
+
+ /*
+    As variáveis declaradas dentro de uma função são chamadas de "variáveis locais" e possuem características específicas.
+
+    "Local" significa que a variável só existe dentro da função onde foi declarada e só pode ser acessada e utilizada ali dentro.
+      - Pense na função como uma sala e a variável como um objeto dentro dessa sala; somente quem está na sala pode interagir com esse objeto.
+
+    Comportamento das variáveis locais:
+      - A variável só é criada quando a função é executada.
+      - Assim que o comando "var contador = 0" é executado, a variável "contador" passa a existir dentro da função.
+      - Durante a execução da função, a variável pode ser usada livremente, mas somente dentro dessa função.
+      - Quando a função termina sua execução, a variável local deixa de existir.
+
+    No exemplo atual, o valor da variável "contador" não é preservado entre as execuções da função.
+    Isso ocorre porque, a cada vez que a função "incrementar()" é chamada, a variável "contador" é redefinida para 0.
+    Em seguida, ela é incrementada em 1, mas esse valor é perdido quando a função termina, e o ciclo recomeça da próxima vez que a função é chamada.
+    
+    Portanto, se for necessário manter o valor de "contador" entre as execuções da função, não podemos usar uma variável local.
+    Nesse caso, uma variável global ou um outro tipo de armazenamento seria necessário.
+  */
+</script>

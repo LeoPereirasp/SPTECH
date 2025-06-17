@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span>Nome do produto:</span>
+  <input type="text" id="ipt_nome"><br><br>
+  <span>Preço de compra:</span>
+  <input type="number" id="ipt_preco"><br><br>
+  <button onclick="cadastrar()">Cadastrar</button>
+  <button onclick="exibirRelatorio()">Relatório de estoque</button>
+  <div id="div_relatorio"></div>
+</body>
+</html>
+<script>
+  const listaNomes = [];
+  const listaPrecos = [];
+
+  function cadastrar() {
+    const nome = ipt_nome.value;
+    const preco = Number(ipt_preco.value);
+
+    listaNomes.push(nome);
+    listaPrecos.push(preco);
+
+    console.log(listaNomes);
+    console.log(listaPrecos);
+  }
+
+  function exibirRelatorio() {
+    const qtdProdutos = listaNomes.length;
+
+    div_relatorio.innerHTML = `Total de produtos: ${qtdProdutos}`;
+
+    for (let i = 0; i < qtdProdutos; i++) {
+      const precoVenda = listaPrecos[i] * 1.25;
+      div_relatorio.innerHTML += `
+        <br>Produto ${i + 1}: ${listaNomes[i]}<br>
+        Preço de compra: R$${listaPrecos[i].toFixed(2)}. 
+        Vender por R$${precoVenda.toFixed(2)}<br>
+      `;
+    }
+  }
+</script>

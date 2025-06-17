@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxilio de Banco</title>
+</head>
+<body>
+    
+    Valor da Renda familiar:
+    <input type="number" id="input_renda">
+
+    <br><br>
+
+    Valor da Prestação:
+    <input type="number" id="input_prestacao">
+
+    <br><br>
+
+    <button onclick="Verificar()">Verificar Financiamento</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var renda = Number(input_renda.value);
+        var prestacao = Number(input_prestacao.value);
+        var valor = prestacao / renda * 100;
+
+        div_mensagem.innerHTML += `A prestação corresponde a ${ valor }% da renda familiar <br><br>`;
+
+        if( valor > 30){
+        div_mensagem.innerHTML += `<b style="color: red"> Será necessário complementar a renda familiar </b>`;
+        }
+    }
+</script>

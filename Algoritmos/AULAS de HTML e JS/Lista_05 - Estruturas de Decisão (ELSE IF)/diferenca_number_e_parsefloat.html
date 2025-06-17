@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //Diferença Number e parseFloat:
+    //Pode usar o Number mesmo nos exercícios
+    console.log(Number("42"));       // 42
+    console.log(Number("42.5"));     // 42.5
+    console.log(Number("42px"));     // NaN (formato inválido)
+    console.log(Number(" 42 "));     // 42 (espaços são ignorados)
+    console.log(Number(""));         // 0 (string vazia é convertida para 0)
+    console.log(Number(null));       // 0
+    console.log(Number(undefined));  // NaN
+
+    console.log(parseFloat("42.5px"));  // 42.5 (ignora "px")
+    console.log(parseFloat("42"));      // 42
+    console.log(parseFloat("42.9.3"));  // 42.9 (para no primeiro número válido)
+    console.log(parseFloat("abc42"));   // NaN (começa com caractere inválido)
+    console.log(parseFloat("  3.14  ")); // 3.14 (ignora espaços no início e no fim)
+    console.log(parseFloat(""));        // NaN
+    console.log(parseFloat(null));      // NaN
+    console.log(parseFloat(undefined)); // NaN
+
+</script>
+
+</html>

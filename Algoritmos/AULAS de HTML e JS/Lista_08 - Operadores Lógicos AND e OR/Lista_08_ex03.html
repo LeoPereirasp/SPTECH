@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Simulador de Preço do Bilhete Único de São Paulo </title>
+</head>
+<body>
+
+    Qual o tipo de passageiro?
+    <select id="select_passageiro">
+        <option value="1"> Comum </option>
+        <option value="2"> Estudante </option>
+        <option value="3"> idoso/PNE </option>
+    </select>
+
+    <br><br>
+
+    Qual o tipo de passagem?
+    <select id="select_passagem">
+        <option value="1"> passagem Única </option>
+        <option value="2"> Passagem Integração </option>
+    </select>
+
+    <br><br>
+
+    <button onclick="Verificar()"> Simular Preço </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+    var passageiro = select_passageiro.value;
+    var passagem = select_passagem.value;
+
+    var passagemunica = 4.40;
+    var passagemintegrada = 5.90;
+
+    if( passagem == "2" && passageiro == "2" ){
+        passagem = passagemintegrada / 2;
+    } else if( passagem == "1" && passageiro == "2"){
+        passagem = passagemunica / 2;
+    } else if(passagem == "1" && passageiro =="1"){
+        passagem = passagemunica;
+    } else if(passagem == "2" && passageiro =="1"){
+        passagem = passagemintegrada;
+    } else{
+        passagem = 0;
+    }
+    div_mensagem.innerHTML = `Valor da passagem escolhida: R$${ passagem } `;
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Alinhamento</h2>
+
+    Digite uma Nota:
+    <input type="number" id="input_nota"> 
+    
+    <br><br>
+
+    <button onclick="Analisar()">Analisar Nota</button>
+
+    <br><br>
+    
+    <div id="div_mensagem"></div>
+   
+</body>
+</html>
+
+<script>
+    function Analisar(){
+        var nota = Number(input_nota.value);
+
+        if(nota < 0){
+            div_mensagem.innerHTML = "Nota inválida, número negativo!";
+        } else if(nota <= 10){
+                div_mensagem.innerHTML = "Nota válida, está entre 0 e 10!";
+            } else{
+                div_mensagem.innerHTML = "Nota inválida, número muito alto!";
+        }
+    }
+
+</script>
+
+    <!--
+    Abaixo de 0 -> Nota inválida, número negativo!
+    Entre o e 10 -> Nota válida, está entre 0 e 10!
+    Maior que 10 -> Nota inválida, número muito alto!
+    -->

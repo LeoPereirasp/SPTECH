@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Múltiplos</title></head>
+<body>
+  <h2>4. Somando Múltiplos</h2>
+  <input type="number" id="limite" placeholder="Limite positivo">
+  <input type="number" id="multiplo" placeholder="Número entre 1 e limite">
+  <button onclick="somarMultiplos()">Somar Números</button>
+  <div id="resultado4"></div>
+
+  <script>
+    function somarMultiplos() {
+      const limite = parseInt(document.getElementById("limite").value);
+      const multiplo = parseInt(document.getElementById("multiplo").value);
+      const res = document.getElementById("resultado4");
+      if (limite <= 0 || multiplo < 1 || multiplo > limite) {
+        res.innerHTML = "Valores inválidos.";
+        return;
+      }
+      let soma = 0, multiplos = [];
+      for (let i = 1; i <= limite; i++) {
+        if (i % multiplo === 0) {
+          multiplos.push(i);
+          soma += i;
+        }
+      }
+      res.innerHTML = `Múltiplos de ${multiplo} até ${limite}:<br>${multiplos.join(", ")}<br><br>Soma dos Múltiplos: ${soma}`;
+    }
+  </script>
+</body>
+</html>

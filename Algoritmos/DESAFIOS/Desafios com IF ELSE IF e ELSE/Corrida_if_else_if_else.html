@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrara Drivers</title>
+</head>
+<body>
+
+    Qual o seu nome?
+    <input type="text" id="input_nome">
+
+    <br><br>
+
+    Qual a distância(em km) do percurso da corrida?
+    <input type="number" id="input_distancia">
+
+    <br><br>
+
+    Qual a bandeira da corrida ( 1, 2 ou 3)?
+    <input type="number" id="input_bandeira">
+
+    <br><br>
+
+    Qual o horário da corrida(informe apenas horas inteiras)?
+    <input type="number" id="input_horario">
+
+    <br><br>
+
+    <button onclick="Calcular()"> Calcular Corrida </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Calcular(){
+        var Nome = input_nome.value;
+        var Km = Number(input_distancia.value);
+        var Bandeira = input_bandeira.value;
+        var hora = Number(input_horario.value);
+
+        var ValorKm = Km * 1.25;
+        if( Bandeira == 1){
+            if( hora < 0){
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            } else if( hora <= 6){
+                ValorKm = ValorKm + (ValorKm * 0.05);
+            } else if( hora <= 12){
+                ValorKm = ValorKm + (ValorKm * 0.10);
+            } else if( hora <= 23) {
+                ValorKm = ValorKm + (ValorKm * 0.15);
+            } else{
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            }
+        } else if( Bandeira == 2){
+            if( hora < 0){
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            } else if( hora <= 6){
+                ValorKm = ValorKm + (ValorKm * 0.10);
+            } else if( hora <= 12){
+                ValorKm = ValorKm + (ValorKm * 0.20);
+            } else if( hora <= 23) {
+                ValorKm = ValorKm + (ValorKm * 0.30);
+            } else{
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            }
+        } else if( Bandeira == 3){
+            if( hora < 0){
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            } else if( hora <= 6){
+                ValorKm = ValorKm + (ValorKm * 0.15);
+            } else if( hora <= 12){
+                ValorKm = ValorKm + (ValorKm * 0.30);
+            } else if( hora <= 23){
+                ValorKm = ValorKm + (ValorKm * 0.45);
+            } else{
+                alert("Hora inválida, digite uma hora cheia válida entre 0 e 23")
+            }
+        } else{
+            alert("Bandeira Inválida, digite uma Bandeira com valor = 1, ou = 2, ou = 3.");
+        }
+
+        div_mensagem.innerHTML = `Olá ${Nome}, sua corrida será na bandeira ${Bandeira}, percorrerá ${Km} km e o total da corrida será de R$ ${ValorKm}`;
+    }
+</script>

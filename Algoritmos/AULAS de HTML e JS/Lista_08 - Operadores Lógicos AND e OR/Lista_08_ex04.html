@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Autenticação Segura </title>
+</head>
+<body>
+    
+    Informe o login:
+    <input type="text" id="input_login">
+
+    <br><br>
+
+    Informe a senha:
+    <input type="password" id="input_senha">
+
+    <br><br>
+
+    Informe uma informação pessoal:
+    <input type="text" id="input_info">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Simular Preço </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+    var login = input_login.value;
+    var senha = input_senha.value;
+    var info = input_info.value;
+
+    if( login == "ana" && senha == "braga" && ( info == "1949" || info =="louro josé")){
+        div_mensagem.innerHTML =  "Usuário autenticado";
+    } else{
+        div_mensagem.innerHTML =  "Falha na autenticação";
+    }
+}
+</script>

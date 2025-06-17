@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de cansaço SPTech</h1>
+
+    Meio de Transporte:
+    <select id="select_meios">
+
+        <option value="1"> Ônibus </option>
+        <option value="2"> Metrô </option>
+        <option value="3"> Carro </option>
+        <option value="4"> Bicicleta </option>
+        <option value="5"> Uber </option>
+
+    </select>
+
+    <br><br>
+
+    <button onclick="Verificar()"> Calcular Cansaço</button>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var meio = select_meios.value;
+
+        if ( meio == 3 || meio == 5){
+            alert("Tá tranquilo..." );
+        } else if( meio == 2 || meio == 1){
+            alert("Um pouco cansado");
+        } else {
+            alert("Vish... vive cansado");
+        }
+    }
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque</title>
+</head>
+<body>
+    
+    Nome:
+    <input type="text" id="input_nome">
+
+    <br><br>
+
+    Altura(em metros):
+    <input type="number" id="input_altura">
+
+    <br><br>
+
+    Idade:
+    <input type="number" id="input_idade">
+
+    <br><br>
+
+    Está acompanhando do pai?
+    <select id="select_como">
+        <option value="1"> Sim </option>
+        <option value="2"> Não </option>
+    </select>
+
+    <br><br>
+
+    <button onclick="Verificar()"> Verificar </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+function Verificar(){
+    var nome = input_nome.value;
+    var altura = input_altura.value;
+    var companhia = select_como.value;
+    var idade = input_idade.value;
+
+    if (altura > 1.50 && idade >=18){
+        div_mensagem.innerHTML = "Você está autorizado a entrar no parque";
+    } else if (altura > 1.50 && idade < 18 && companhia == "1"){
+        div_mensagem.innerHTML = "Você está autorizado a entrar no parque, pois está acompanhado do seu pai";
+    } else {
+        div_mensagem.innerHTML = "Você não está autorizado a entrar no parque";
+    } 
+}
+ 

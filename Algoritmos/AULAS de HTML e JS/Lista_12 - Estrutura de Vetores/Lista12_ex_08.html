@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça as frutas</title>
+</head>
+<body>
+    <span>Cadastre os nomes dos alunos?</span>
+    <input type="text" id="ipt_aluno"><br>
+    <button onclick="adicionar()">Cadastrar aluno</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    const vetor = [];
+    
+    function adicionar(){
+        div_resultado.innerHTML = "";
+        const Aluno = ipt_aluno.value;
+        var tamanhoVetor = vetor.length;
+        vetor.push(Aluno);
+
+        for(let i = 0; i <= tamanhoVetor; i++){
+            div_resultado.innerHTML += `${vetor[tamanhoVetor - i]}<br>`
+        }
+    }
+</script>

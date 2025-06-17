@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Autenticação Segura </title>
+</head>
+<body>
+    
+    Informe o login:
+    <input type="text" id="input_login">
+
+    <br><br>
+
+    Informe a senha:
+    <input type="password" id="input_senha">
+
+    <br><br>
+
+    Informe uma informação pessoal:
+    <input type="text" id="input_info">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Verificar </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+
+</body>
+</html>
+
+<script>
+
+    var contador = 3;
+
+    function Verificar(){
+    var login = input_login.value;
+    var senha = input_senha.value;
+    var info = input_info.value;
+
+    div_mensagem.innerHTML="";
+
+    if( contador == 0){
+        div_mensagem.innerHTML = " Usuário BLOQUEADO! Procure seu gerente!";
+    } else if( login == "ana" && senha == "braga" && ( info == "1949" || info =="louro josé")){
+        div_mensagem.innerHTML =  "Usuário autenticado";
+       
+    } else{
+        contador --;
+        div_mensagem.innerHTML +=  "Falha na autenticação<br>";
+        div_mensagem.innerHTML += `Você ainda tem ${ contador } tentativa(s)<br>`;
+    }
+}
+</script>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementando o ChartJS</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: blue;
+      padding: 10px 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h2 {
+      margin: 0;
+      font-size: 50px;
+      margin-left: 4%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 20px;
+      flex-grow: 1; /* empurra o footer pra base */
+    }
+
+    footer {
+      text-align: center;
+      background-color: blue;
+      color: white;
+      padding: 15px 0;
+     justify-content: flex-end;
+     align-items: flex-end;
+      margin-top: 20px;
+     
+     border-color: darkblue;
+    
+    }
+
+  
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h2>Atividade de - PI</h2>
+    <ul>
+      <li><a href="#">Início</a></li>
+      
+    </ul>
+  </nav>
+
+  <div id="container">
+    <div>
+      <canvas id="myChart" style="position: relative; height:40px; width:50px"></canvas>
+    </div>
+
+    <div>
+      <canvas id="myChart2" style="position: relative; height:40px; width:50px"></canvas>
+    </div>
+  </div>
+
+  <footer>
+    <h1>MICHEL TITO MASCARENHAS</h1>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [
+          {
+            label: 'Media Temperatura',
+            data: [22, 24, 27, 23, 20, 18],
+            backgroundColor: 'blue', 
+            borderWidth: 1
+          },
+          {
+            label: 'Media Umidade',
+            data: [90, 89, 93, 87, 88, 82],
+            backgroundColor: 'darkblue',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['12h00', '13h00', '14h00', '15h00', '16h00', '17h00'],
+        datasets: [
+          {
+            label: 'Temperatura',
+            data: [30, 29, 28, 25, 22, 22],
+            borderWidth: 1,
+            borderColor: 'pink',  
+            backgroundColor: 'pink', 
+            
+          },
+          {
+            label: 'Umidade',
+            data: [80, 82, 60, 85, 80, 83],
+            borderWidth: 1,
+            borderColor: 'blue',
+            backgroundColor: 'blue',
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
+   

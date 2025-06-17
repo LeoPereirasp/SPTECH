@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Caça às Frutas</title>
+</head>
+<body>
+
+    Digite o nome de uma fruta:
+    <input type="text" id="input_fruta">
+    <button onclick="pesquisarFruta()">Pesquisar</button>
+
+    <br><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    var lista_frutas = ['maçã', 'banana', 'uva', 'laranja', 'abacaxi', 'melancia'];
+
+    function pesquisarFruta() {
+        var fruta = input_fruta.value;
+
+        if (fruta == "") {
+            div_resultado.innerHTML = "Digite o nome de uma fruta.";
+        }
+
+        if (lista_frutas.includes(fruta)) {
+            div_resultado.innerHTML = `A fruta ${fruta} existe na lista.`;
+        } else {
+            div_resultado.innerHTML = `Não existe a fruta ${fruta} na lista.`;
+        }
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>streaming</title>
+</head>
+<body>
+    Qual a ùltima série que você assistiu?
+    <input type="text" id="input_serie">
+
+    <br><br>
+
+    Quantos episódios você já assistiu?
+    <input type="number" id="input_quant">
+
+    <br><br>
+
+    <button onclick="Verificar()">Verificar Nível</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+        function Verificar() {
+        var serie = input_serie.value;
+        var episodios = Number(input_quant.value);
+        var totalMinutos = episodios * 22;
+        var totalHoras = totalMinutos / 60;
+
+        div_mensagem.innerHTML = `Vejo que você gosta da série ${serie} <br>`;
+
+        if (totalHoras > 30 ) {
+            div_mensagem.innerHTML += `Uau, você realmente gosta dessa série!`;
+        }
+    }
+</script>

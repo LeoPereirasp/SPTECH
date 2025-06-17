@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball</title>
+</head>
+<body>
+    
+    Nome do Guerreiro: 
+    <input type="text" id="input_nome">
+
+    <br><br>
+
+    Ki Normal do Guerreiro:
+    <input type="text" id="input_ki">
+
+    <br><br>
+
+    <button onclick="verificar()"> Ver ki em Cada Forma </button>
+
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var ki = input_ki.value;
+        var nome = input_nome.value;
+        var ki50 = ki * 50;
+        var ki100 = ki * 100;
+        alert( nome + " Super Sayajin 1 " + ki50);
+        alert( nome + " Super Sayajin 2 " + ki100);
+    }
+</script>

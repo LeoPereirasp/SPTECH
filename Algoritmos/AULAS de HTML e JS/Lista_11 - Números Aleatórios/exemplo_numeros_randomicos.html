@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Min:
+    <input type="text" id="input_min"> <br>
+    
+    Max:
+    <input type="text" id="input_max"> <br>
+    
+    <button onclick="gerar()"> Gerar Aleatório </button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function gerar() {
+        var mensagem = "";
+        
+        var aleatorio = Math.random(); // retorna um número decimal de 0 até 0.9999
+
+        var aleatorio_ate_10 = aleatorio * 10; // de 0 até 9.9999
+
+        var min = Number(input_min.value); // captura o valor inserido (EX: 10)
+        var max = Number(input_max.value); // captura o valor inserido (EX: 25)
+        var intervalo = max - min; // intervalo de números entre o mínimo e máximo (EX: 15)
+        
+        var aleatorio_ate_max = aleatorio * max; // gera um número de 0 até o máximo solicitado (EX: 0 até 14.999)
+
+        // EXEMPLO - max: 25 | min : 10 | intervalo: 15 
+        // var aleatorio_intevalo = aleatorio * intervalo; // gera um número de 0 até 14.999
+        // var aleatorio_min_max = aleatorio_intevalo + min; // soma o número gerado com o mínimo informado, gerando um número de 10 até 24.999
+        
+        var aleatorio_min_max = aleatorio * intervalo + min; // gera um número de 10 até 24.999
+        var aleatorio_min_max_fixed = (aleatorio * intervalo + min).toFixed(0); // gera um inteiro de 10 até 25
+
+        var aleatorio_parseInt = parseInt(aleatorio * (intervalo + 1) + min); // gera um inteiro de 10 até 25
+        var aleatorio_Math_floor = Math.floor(aleatorio * (intervalo + 1) + min); // gera um inteiro de 10 até 25
+
+        mensagem += `
+            Aleatório sorteado: ${aleatorio} <br>
+            Aleatório até 10: ${aleatorio_ate_10} <br>
+            Aleatório até Máximo: ${aleatorio_ate_max} <br>
+            Aleatório entre intervalo solicitado: ${aleatorio_min_max} <br>
+            Aleatório inteiro: ${aleatorio_min_max_fixed} <br>
+            Aleatório com parseInt: ${aleatorio_parseInt} <br>
+            Aleatório com Math.floor: ${aleatorio_Math_floor}
+        `;
+
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paty</title>
+</head>
+<body>
+
+    Nota 1:
+    <input type="number" id="input_nota1">
+
+    <br> <br>
+
+    Nota 2:
+    <input type="number" id="input_nota2">
+
+    <br> <br>
+
+    Nota 3:
+    <input type="number" id="input_nota3">
+
+    <br> <br>
+
+    <button onclick="media()"> Analisar desempenho</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function media(){
+        var n1 = Number(input_nota1.value);
+        var n2 = Number(input_nota2.value);
+        var n3 = Number(input_nota3.value);
+        var media = Number(n1 + n2 + n3) /3;
+
+        div_mensagem.innerHTML = "Sua média foi de " + media;
+
+        if( media > 9.4){
+            div_mensagem.innerHTML += " Parabéns, você é fora de série!";
+        }
+    }
+</script>

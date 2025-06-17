@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas de Sono</title>
+</head>
+<body>
+    Informe quantas horas dorme por noite:
+    <input type="text" id="input_horas">
+
+    <button onclick="calcular()">Calcular</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        var horas = Number(input_horas.value);
+
+        var fase1 = horas * 0.05;
+        var fase2 = horas * 0.45
+        var fase3 = horas * 0.3;
+        var faseREM = horas * 0.2;
+
+        div_mensagem.innerHTML = `
+            Ao dormir ${horas} horas, você dormiu: <br>
+            ${fase1} horas na fase 1 <br>
+            ${fase2} horas na fase 2 <br>
+            ${fase3} horas na fase 3 <br>
+            ${faseREM} horas fase na  REM 
+        `
+    }
+
+</script>

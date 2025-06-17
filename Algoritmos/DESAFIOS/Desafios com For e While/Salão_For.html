@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Selecione o Serviço: <select id="select_servico">
+        <option value="#">Escolha uma opção</option>
+        <option value="manicure">Manicure</option>
+        <option value="barba">Barba</option>
+        <option value="cabelo">Cabelo</option>
+    </select> <br>
+
+    Selecione o Dia: <select id="select_dia">
+        <option value="#">Escolha uma opção</option>
+        <option value="segunda"> Segunda-feira </option>
+        <option value="terça"> Terça-feira </option>
+        <option value="quarta"> Quarta-feira </option>
+        <option value="quinta"> Quinta-feira </option>
+        <option value="sexta"> Sexta-feira </option>
+        <option value="sábado"> Sábado </option>
+        <option value="domingo"> Domingo </option>
+    </select> <br>
+
+    Selecione o Horário: <select id="select_horario">
+        <option value="#">Escolha uma opção</option>
+        <option value="0"> 00:00h </option>
+        <option value="1"> 01:00h </option>
+        <option value="2"> 02:00h </option>
+        <option value="3"> 03:00h </option>
+        <option value="4"> 04:00h </option>
+        <option value="5"> 05:00h </option>
+        <option value="6"> 06:00h </option>
+        <option value="7"> 07:00h </option>
+        <option value="8"> 08:00h </option>
+        <option value="9"> 09:00h </option>
+        <option value="10"> 10:00h </option>
+        <option value="11"> 11:00h </option>
+        <option value="12"> 12:00h </option>
+        <option value="13"> 13:00h </option>
+        <option value="14"> 14:00h </option>
+        <option value="15"> 15:00h </option>
+        <option value="16"> 16:00h </option>
+        <option value="17"> 17:00h </option>
+        <option value="18"> 18:00h </option>
+        <option value="19"> 19:00h </option>
+        <option value="20"> 20:00h </option>
+        <option value="21"> 21:00h </option>
+        <option value="22"> 22:00h </option>
+        <option value="23"> 23:00h </option>
+    </select> <br>
+
+    Qual será a recorrência de atendimentos em 1 ano? <input type="number" id="input_recorrencia"> <br>
+
+    <button onclick="realizar()">Realizar Orçamento</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function realizar() {
+
+        var servico = (select_servico.value)
+        var dia = (select_dia.value)
+        var horario = (select_horario.value)
+        var recorrência = Number(input_recorrencia.value)
+        var mensagem = ""
+        var promo_manicure = 16
+        var valor_manicure = 20
+        var total_manicure_sem = 0
+        var total_manicure_com = 0
+        var total_barba_sem = 0
+        var total_barba_com = 0
+        var promo_barba = 12
+        var valor_barba = 15
+        var total_cabelo_sem = 0
+        var total_cabelo_com = 0
+        var promo_cabelo = 25
+        var valor_cabelo = 30
+
+        if (servico == "#" || dia == "#" || horario == "#" || recorrência == "") {
+            mensagem = `Preencha todos os campos para prosseguir`
+        } else {
+            if (servico == "manicure") {
+                if (horario >= "8" || horario <= "16") {
+                    if (dia == "terça" || dia == "quinta") {
+                        for (var contador = 1; contador <= recorrência; contador++) {
+                            if (contador % 3) {
+                                mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_manicure} | Desconto: 4 | Preço Final: ${promo_manicure} <br> `
+                                total_manicure_sem++
+                            }
+                            else {
+                                mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 4 | Preço Final: 0 <br> `
+                                total_manicure_com++
+                            }
+                        }
+                        mensagem += ` Ao longo do ano, você será atendido
+                         ${recorrência} vezes, sendo ${total_manicure_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_manicure_sem * 16}.`
+                    }
+                    else {
+                        for (var contador = 1; contador <= recorrência; contador++) {
+                            if (contador % 3) {
+                                mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_manicure} | Desconto: 0 | Preço Final: ${valor_manicure} <br> `
+                                total_manicure_sem++
+
+                            } else {
+                                mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 4 | Preço Final: 0 <br> `
+                                total_manicure_com++
+                            }
+                        }
+                        mensagem += ` Ao longo do ano, você será atendido
+                         ${recorrência} vezes, sendo ${total_manicure_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_manicure_sem * 20}.`
+                    }
+                } 
+            } 
+            // Fim Manicure 
+        } if (servico == "barba") {
+            if (horario >= "13" || horario <= "20") {
+                if (dia == "segunda" || dia == "quarta") {
+                    for (var contador = 1; contador <= recorrência; contador++) {
+                        if (contador % 4) {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_barba} | Desconto: 3 | Preço Final: ${promo_barba} <br> `
+                            total_barba_sem++
+                        }
+                        else {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 3 | Preço Final: 0 <br> `
+                            total_barba_com++
+                        }
+                    }
+                    mensagem += ` Ao longo do ano, você será atendido
+                    ${recorrência} vezes, sendo ${total_barba_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_barba_sem * 12}.`
+                }else {
+                    for (var contador = 1; contador <= recorrência; contador++) {
+                        if (contador % 4) {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_barba} | Desconto: 0 | Preço Final: ${valor_barba} <br> `
+                            total_barba_sem++
+                        } else {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 0 | Preço Final: 0 <br> `
+                            total_barba_com++
+                        }
+                    }
+                    mensagem += ` Ao longo do ano, você será atendido
+                  ${recorrência} vezes, sendo ${total_barba_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_barba_sem * 15}.`
+                }
+            } 
+        } 
+        // Fim barba
+        if (servico == "cabelo") {
+            if (horario >= "00" || horario <= "23") {
+                if (dia == "sexta" || dia == "domingo") {
+                    for (var contador = 1; contador <= recorrência; contador++) {
+                        if (contador % 6) {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_cabelo} | Desconto: 5 | Preço Final: ${promo_cabelo} <br> `
+                            total_cabelo_sem++
+                        }
+                        else {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 5 | Preço Final: 0 <br> `
+                            total_cabelo_com++
+                        }
+                    }
+                    mensagem += ` Ao longo do ano, você será atendido ${recorrência} vezes, sendo ${total_cabelo_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_cabelo_sem * 25}.`
+                }
+                else {
+                    for (var contador = 1; contador <= recorrência; contador++) {
+                        if (contador % 6) {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: ${valor_cabelo} | Desconto: 0 | Preço Final: ${valor_cabelo} <br> `
+                            total_cabelo_sem++
+                        } else {
+                            mensagem += `Atendimento ${contador} - Serviço: ${servico} | Dia: ${dia} | Hora: ${horario}  | Preço Serviço: 0 | Desconto: 0 | Preço Final: 0 <br> `
+                            total_cabelo_com++
+                        }
+                    }
+                    mensagem += ` Ao longo do ano, você será atendido
+                    ${recorrência} vezes, sendo ${total_cabelo_com} serviços grátis devido à fidelidade, onde o valor final do orçamento será de ${total_cabelo_sem * 30}.`
+                }
+
+            }
+        }
+        div_resultado.innerHTML = mensagem
+    }
+</script>

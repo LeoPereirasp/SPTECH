@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relembrando Moradias</title>
+</head>
+<body>
+    Bairro onde já morou:
+    <input type="text" id="input_bairro">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+
+    <br><br>
+
+    Número da moradia que deseja relembrar:
+    <input type="number" id="input_numero">
+    <button onclick="relembrarMoradia()">Relembrar moradia</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        var lista_bairros = [];
+
+        function cadastrarBairro() {
+            var bairro = input_bairro.value;
+            if (bairro != "") {
+                lista_bairros.push(bairro);
+                div_mensagem.innerHTML = "Bairro cadastrado com sucesso!";
+                input_bairro.value = "";
+            }
+        }
+
+        function relembrarMoradia() {
+            var numero = Number(input_numero.value);
+
+            if (numero < 1 || isNaN(numero)) {
+                div_mensagem.innerHTML = "Digite um número válido a partir de 1.";
+            } else if (numero > lista_bairros.length) {
+                div_mensagem.innerHTML = `Você ainda não morou num ${numero}º bairro!`;
+            } else {
+                var bairro = lista_bairros[numero - 1];
+                div_mensagem.innerHTML = `Você morou no ${numero}º bairro: ${bairro}`;
+            }
+        }
+    </script>
+</body>
+</html>

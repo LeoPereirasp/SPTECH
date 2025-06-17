@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FizzBuzz! </title>
+</head>
+<body>
+    
+    Mínimo:
+    <input type="number" id="input_min">
+
+    <br><br>
+
+    Máximo:
+    <input type="number" id="input_max">
+
+    <br><br>
+
+    <button onclick="Verificar()"> FizzBuzz!</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var min = Number(input_min.value);
+        var max = Number(input_max.value);
+            
+        if(min >= 1 && max <= 100){
+            var mensagem = "";
+            for(var contador = min; contador <= max; contador++){
+                var resto3 = contador % 3;
+                var resto5 = contador % 5;
+
+                if (resto3 == 0 && resto5 == 0){
+                    mensagem += `FizzBuzz! <br>`
+                } else if (resto5 == 0){
+                    mensagem += `Buzz! <br>`
+                } else if(resto3 == 0){
+                    mensagem += `Fizz! <br>`
+                } else  {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+
+            div_mensagem.innerHTML = mensagem;
+
+        } else {
+            alert("Informe um intervalo entre 1 a 100");
+        }
+    }
+
+</script>

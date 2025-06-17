@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Números Misteriosos </title>
+</head>
+<body>
+    
+    <button onclick="Contar()"> Números cabalísticos </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Contar(){
+        var contador = 0;
+
+        div_mensagem.innerHTML="";
+
+        while (contador < 30){
+
+            contador ++;
+            if( contador != 3 && contador != 4 && contador != 7 && contador != 10 && contador != 12){
+               
+                div_mensagem.innerHTML += `${ contador }<br>`;
+            }  
+               
+        }
+    }
+</script>

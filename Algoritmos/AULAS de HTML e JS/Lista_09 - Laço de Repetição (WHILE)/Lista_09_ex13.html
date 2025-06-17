@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> É tri/penta! </title>
+</head>
+<body>
+    
+    Informe o número que deve iniciar a contagem:
+    <input type="number" id="input_inicio">
+
+    <br><br>
+
+    Informe um número que deve finalizar a contagem:
+    <input type="number" id="input_final">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Curto 3 e 5!</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var inicio = Number(input_inicio.value);
+        var final = Number(input_final.value);
+        var mensagem = "";
+        
+        if(final > inicio){
+        while (inicio <= final) {
+            if (inicio % 3 == 0 && inicio % 5 == 0) {
+                mensagem += inicio + " - É TRI!É PENTA!<br>";
+            } else if (inicio % 3 == 0) {
+                mensagem += inicio + " - É TRI!<br>";
+            } else if (inicio % 5 == 0) {
+                mensagem += inicio + " - É PENTA!<br>";
+            } else {
+                mensagem += inicio + "<br>";
+            }
+            inicio++;
+        }
+        div_mensagem.innerHTML = mensagem;
+    } else {
+            alert("Informe um intervalo crescente");
+        }
+    }
+
+</script>

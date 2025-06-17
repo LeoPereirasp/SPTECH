@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Expressar amor </title>
+</head>
+<body>
+
+    Qual a pessoa que você mais ama na vida?
+    <input type="text" id="input_pessoa">
+
+    <br><br>
+
+    Quanto você ama essa pessoa?
+    <input type="number" id="input_quant">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Expressar Amor </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var pessoa = input_pessoa.value;
+        var quant = Number(input_quant.value);
+
+        var contador = 0;
+        while (contador < quant) {
+            contador++;
+            div_mensagem.innerHTML += `${contador} - ${pessoa} eu te amo! Sempre lembre disso!<br>`;
+        }
+       
+    }
+</script>

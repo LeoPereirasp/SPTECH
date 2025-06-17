@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo - Vetores</title>
+</head>
+<body>
+  <input type="text" id="ipt_nome_fruta">
+  <button onclick="adicionar()">Adicionar Fruta</button>
+
+  <button onclick="exibirVetor()">Exibir vetor</button>
+
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+  //                 0        1        2
+  const vetor = [ "Goiaba", "Uva", "Morango" ];
+  
+  function exibirVetor() {
+    div_resultado.innerHTML = vetor;
+  }
+
+  function adicionar() {
+    let nomeFruta = ipt_nome_fruta.value;
+    vetor.push(nomeFruta);
+    alert("Fruta adicionada com sucesso! :D");
+  } 
+</script>

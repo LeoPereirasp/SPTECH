@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Doceria Gourmet</title>
+</head>
+<body>
+
+    Informe a quantidade de Macarons:
+    <input type="number" id="input_macaron">
+
+    <br><br>
+
+    Informe a quantidade de Brigadeiros Gourmets:
+    <input type="number" id="input_brigadeiro">
+
+    <br><br>
+
+    Informe a quantidade de Cupcakes:
+    <input type="number" id="input_cupcake">
+
+    <br><br>
+
+    Informe a quantidade de Cheesecakes:
+    <input type="number" id="input_cheesecake">
+
+    <br><br>
+    <br><br>
+
+    Informe o valor de cada Macaron:
+    <input type="number" id="input_vmacaron">
+
+    <br><br>
+
+    Informe o valor de cada Brigadeiro Gourmet:
+    <input type="number" id="input_vbrigadeiro">
+
+    <br><br>
+
+    Informe o valor de cada Cupcake:
+    <input type="number" id="input_vcupcake">
+
+    <br><br>
+
+    Informe o valor de cada Cheesecake:
+    <input type="number" id="input_vcheesecake">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Verificar Vendas </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+   function Verificar() {
+    var macaron = Number(input_macaron.value);
+    var brigadeiro = Number(input_brigadeiro.value);
+    var cupcake = Number(input_cupcake.value);
+    var cheesecake = Number(input_cheesecake.value);
+    var Valormacaron = Number(input_vmacaron.value);
+    var Valorbrigadeiro = Number(input_vbrigadeiro.value);
+    var Valorcupcake = Number(input_vcupcake.value);
+    var Valorcheesecake = Number(input_vcheesecake.value);
+
+    if (macaron < 0 || brigadeiro < 0 || cupcake < 0 || cheesecake < 0 || 
+        Valormacaron < 0 || Valorbrigadeiro < 0 || Valorcupcake < 0 || Valorcheesecake < 0) {
+        alert("Valores Inválidos! Por favor, insira valores iguais ou maiores que 0");
+    } else {
+
+    var total = (macaron * Valormacaron) + (brigadeiro * Valorbrigadeiro) + (cupcake * Valorcupcake) + (cheesecake * Valorcheesecake);
+    var qtdDoces = macaron + brigadeiro + cupcake + cheesecake;
+    var mensagem = "";
+    var contador = 1;
+    var resumo = `Com a quantidade de ${macaron} Macarons, ${brigadeiro} Brigadeiros, ${cupcake} Cupcakes e ${cheesecake} Cheesecakes, a venda totalizará R$${total}`;
+
+    while (contador <= qtdDoces) {
+        if (macaron > 0) {
+            mensagem += `Venda ${contador} - <img style='width: 100px; height:100px;' src='https://static.wixstatic.com/media/8024f8_0a8fc3fb5403423a8239b4122c8adfcb~mv2.png'> - R$${Valormacaron}<br>`;
+            macaron--;
+        } else if (brigadeiro > 0) {
+            mensagem += `Venda ${contador} - <img style='width: 100px; height:100px;' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXWKQFSF3WtqRqUW-8qtiujQ1kJAiapJXDfg&s'> - R$${Valorbrigadeiro}<br>`;
+            brigadeiro--;
+        } else if (cupcake > 0) {
+            mensagem += `Venda ${contador} - <img style='width: 100px;  height:100px;' src='https://www.mococa.com.br/wp-content/uploads/2022/03/Cupcake-Mococa.jpeg'> - R$${Valorcupcake}<br>`;
+            cupcake--;
+        } else if (cheesecake > 0) {
+            mensagem += `Venda ${contador} - <img style='width: 100px; height:100px;' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDzZGjtY1-F2P4FxlgO_sUQg2eOcBy9un9Lg&s'> - R$${Valorcheesecake}<br><br>`;
+            cheesecake--;
+        }
+        contador++;
+        div_mensagem.innerHTML = mensagem + resumo;
+    }
+    
+    }  
+}
+
+</script>

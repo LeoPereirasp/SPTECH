@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Cadastrar Produto:</h3>
+  <span>Nome do produto:</span>
+  <input type="text" id="ipt_nome" oninput="limparDivCadastrar()"><br><br>
+  <span>Preço de compra:</span>
+  <input type="number" id="ipt_preco" oninput="limparDivCadastrar()"><br><br>
+  <button onclick="cadastrar()">Cadastrar</button>
+  <div id="div_cadastrar"></div>
+
+  <h3>Alterar Produto:</h3>
+  <span>Índice do produto:</span>
+  <input type="number" id="ipt_indice"><br><br>
+  <span>Novo nome:</span>
+  <input type="text" id="ipt_novo_nome"><br><br>
+  <button onclick="atualizar()">Atualizar</button>
+  <div id="div_atualizar"></div>
+
+  <h3>Remover produto:</h3>
+  <span>Índice do produto:</span>
+  <input type="number" id="ipt_indice_remover"><br><br>
+  <button onclick="remover()">Remover</button>
+  <div id="div_remover"></div>
+
+  <h3>Exibir Relatório</h3>
+  <button onclick="exibirRelatorio()">Relatório de estoque</button>
+  <div id="div_relatorio"></div>
+</body>
+</html>
+<script>
+  const listaNomes = [];
+  const listaPrecos = [];
+
+  function cadastrar() {
+    const nome = ipt_nome.value;
+    const preco = Number(ipt_preco.value);
+
+    listaNomes.push(nome);
+    listaPrecos.push(preco);
+
+    div_cadastrar.innerHTML = 'Produto cadastrado com sucesso';
+  }
+
+  function limparDivCadastrar() {
+    div_cadastrar.innerHTML = '';
+  }
+
+  function atualizar() {
+    const indice = Number(ipt_indice.value);
+    const novoNome = ipt_novo_nome.value;
+
+    if (indice < 0 || indice >= listaNomes.length) {
+      div_atualizar.innerHTML = "Índice inválido";
+      return;
+    }
+
+    listaNomes[indice] = novoNome;
+    div_atualizar.innerHTML = "Produto atualizado com sucesso!";
+  }
+
+  function remover() {
+    const indice = Number(ipt_indice_remover.value);
+
+    listaNomes.splice(indice, 1);
+    listaPrecos.splice(indice, 1);
+
+    div_remover.innerHTML = 'Produto removido com sucesso!';
+  }
+
+  function exibirRelatorio() {
+    const qtdProdutos = listaNomes.length;
+
+    div_relatorio.innerHTML = `Total de produtos: ${qtdProdutos}`;
+
+    for (let i = 0; i < qtdProdutos; i++) {
+      const precoVenda = listaPrecos[i] * 1.25;
+      div_relatorio.innerHTML += `
+        <br>Produto ${i + 1}: ${listaNomes[i]}<br>
+        Preço de compra: R$${listaPrecos[i].toFixed(2)}. 
+        Vender por R$${precoVenda.toFixed(2)}<br>
+      `;
+    }
+
+    let indiceMaisCaro = 0;
+    let indiceMaisBarato = 0;
+
+    for (let i = 0; i < qtdProdutos; i++) {
+      if (listaPrecos[indiceMaisCaro] < listaPrecos[i]) {
+        indiceMaisCaro = i;
+      }
+
+      if (listaPrecos[indiceMaisBarato] > listaPrecos[i]) {
+        indiceMaisBarato = i;
+      }
+    }
+
+    div_relatorio.innerHTML += `
+      <br>Produto mais caro: ${listaNomes[indiceMaisCaro]}
+      <br>Produto mais barato: ${listaNomes[indiceMaisBarato]}
+    `;
+
+    let somaPrecos = 0;
+
+    for (let i = 0; i < qtdProdutos; i++) {
+      somaPrecos += listaPrecos[i];
+    }
+
+    div_relatorio.innerHTML += `
+      <br>Soma dos preços: ${somaPrecos.toFixed(2)}
+      <br>Média dos preços: ${(somaPrecos / qtdProdutos).toFixed(2)}
+    `;
+  }
+</script>

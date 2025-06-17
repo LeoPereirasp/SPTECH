@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes Coloridos</title>
+</head>
+<body>
+
+    Nome do filme:
+    <input type="text" id="input_filme">
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+
+    <br><br>
+
+    <div id="div_lista"></div>
+
+    <script>
+        var lista_filmes = [];
+
+        function cadastrarFilme() {
+            var filme = input_filme.value;
+
+            if (filme !== "") {
+                lista_filmes.push(filme);
+                filme = "";
+                mostrarFilmes();
+            }
+        }
+
+        function mostrarFilmes() {
+            var conteudo = "";
+
+            for (var i = 0; i < lista_filmes.length; i++) {
+                var cor = (i % 2 == 0) ? "blue" : "red";
+                conteudo += `<div style="color: ${cor};">${i + 1}. ${lista_filmes[i]}</div>`;
+            }
+
+            div_lista.innerHTML = conteudo;
+        }
+    </script>
+
+</body>
+</html>

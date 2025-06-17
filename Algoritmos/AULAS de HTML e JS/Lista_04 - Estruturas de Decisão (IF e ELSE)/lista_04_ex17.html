@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequência</title>
+</head>
+<body>
+     Qual a frequência do aluno?
+     <input type="number" id="input_frequencia">
+
+     <br><br>
+
+     <button onclick="analisar()">Analisar</button>
+
+     <br><br>
+
+     <div id="div_mensagem"></div>
+
+     <br><br>
+     <img src="" id="imagem" style="display:none; width:200px;">
+     
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var temp = Number(input_frequencia.value);
+        if (temp < 50) {
+            div_mensagem.innerHTML = "Frequência Baixa";
+            imagem.src = "imagens/turista.jpeg"; 
+        } else {
+            div_mensagem.innerHTML = "Aluno Exemplar";
+            imagem.src = "imagens/estudioso.jpeg"; 
+        }
+        imagem.style.display = "block";
+    }
+</script>

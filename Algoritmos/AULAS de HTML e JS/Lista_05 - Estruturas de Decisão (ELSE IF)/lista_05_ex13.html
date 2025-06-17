@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Escolha um pokémon?
+    <input type="text" id="input_escolha">
+
+    <br><br>
+
+    <button onclick="Escolher()">  Escolher Pokémon </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <br><br>
+
+    <img src="" id="imagem" style="display:none; width:200px;">
+
+</body>
+</html>
+
+<script>
+    function Escolher(){
+        var escolha = input_escolha.value;
+
+        if ( escolha == "Bulbasaur"){
+            imagem.src = "imagens/bulbasaur.jpeg"; 
+        } else if( escolha == "Charmander"){
+            imagem.src = "imagens/charmander.jpeg"; 
+        } else if ( escolha == "Squirtle"){
+            imagem.src = "imagens/squirtle.jpeg"; 
+        } else {
+            div_mensagem.innerHTML = "Pokémon não reconhecido.";
+        }
+        imagem.style.display = "block";
+    }
+</script>

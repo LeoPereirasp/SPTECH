@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> É tri/penta! </title>
+</head>
+<body>
+    
+    Mínimo:
+    <input type="number" id="input_min">
+
+    <br><br>
+
+    Máximo:
+    <input type="number" id="input_max">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Curto 3 e 5!</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var min = Number(input_min.value);
+        var max = Number(input_max.value);
+            
+        if(max > min){
+            var mensagem = "";
+            for(var contador = min; contador <= max; contador++){
+                var resto3 = contador % 3;
+                var resto5 = contador % 5;
+
+                if (resto3 == 0 && resto5 == 0){
+                    mensagem += `É TRI! É PENTA! <br>`
+                } else if (resto5 == 0){
+                    mensagem += `É PENTA! <br>`
+                } else if(resto3 == 0){
+                    mensagem += `É TRI! <br>`
+                } else  {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+
+            div_mensagem.innerHTML = mensagem;
+
+        } else {
+            alert("Informe um intervalo crescente");
+        }
+    }
+
+</script>

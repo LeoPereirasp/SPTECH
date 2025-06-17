@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JO KEN PO </title>
+</head>
+<body>
+
+    <button onclick="Sortear()"> Jogar </button>
+    
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    var vitoriasJogador1 = 0;
+    var vitoriasJogador2 = 0;
+
+    function Sortear(){
+        var mensagem = "";
+
+        var jogada1 = parseInt(Math.random() * 3);
+        var jogada2 = parseInt(Math.random() * 3);
+
+        mensagem += "Jogador 1:<br>";
+        if (jogada1 == 0) {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/tesoura.png' height='200'><br><br>";
+        } else if (jogada1 == 1) {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/pedra.png' height='200'><br><br>";
+        } else {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/papel.png' height='200'><br><br>";
+        }
+
+        mensagem += "Jogador 2:<br>";
+        if (jogada2 == 0) {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/tesoura.png' height='200'><br><br>";
+        } else if (jogada2 == 1) {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/pedra.png' height='200'><br><br>";
+        } else {
+            mensagem += "<img src='https://jokenpo-three-sage.vercel.app/src/img/papel.png' height='200'><br><br>";
+        }
+
+        if (jogada1 == jogada2) {
+            mensagem += "Empate!<br><br>";
+        } else if (
+            (jogada1 == 0 && jogada2 == 2) ||
+            (jogada1 == 1 && jogada2 == 0) ||
+            (jogada1 == 2 && jogada2 == 1)
+        ) {
+            mensagem += "O Jogador 1 venceu!<br><br>";
+            vitoriasJogador1++;
+        } else {
+            mensagem += "O Jogador 2 venceu!<br><br>";
+            vitoriasJogador2++;
+        }
+
+        mensagem += "Jogador 1: " + vitoriasJogador1 + " vitória(s)<br>";
+        mensagem += "Jogador 2: " + vitoriasJogador2 + " vitória(s)";
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

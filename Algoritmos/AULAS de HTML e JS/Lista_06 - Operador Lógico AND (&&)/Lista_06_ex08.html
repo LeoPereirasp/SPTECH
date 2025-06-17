@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Seguro</title>
+</head>
+<body>
+    Informe o login do usuário:
+    <input type="text" id="input_login">
+
+    <br><br>
+
+    Informe sua Senha:
+    <input type="password" id="input_senha">
+
+    <br><br>
+
+    Informe seu Código de Segurança:
+    <input type="number" id="input_cod">
+
+    <button onclick="Verificar()"> Entrar </button>
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var login = input_login.value;
+        var senha = input_senha.value;
+        var cod = input_cod.value;
+
+        if( login == "SPTech" && senha == 'digital' && cod == '123'){
+            alert("Usuário autenticado com sucesso" );
+        } else{
+            alert("Falha na autenticação");
+        }
+    }
+</script>

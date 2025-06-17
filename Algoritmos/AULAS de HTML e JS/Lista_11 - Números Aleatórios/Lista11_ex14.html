@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua</title>
+</head>
+<body>
+
+    <button onclick="Sortear()">Ver a Lua</button>
+    
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Sortear() {
+        var dia = Math.floor(Math.random() * 31) + 1;
+        
+        var faseLua = "";
+
+        if (dia >= 1 && dia <= 7) {
+            faseLua = "Lua nova";
+        } else if (dia >= 8 && dia <= 16) {
+            faseLua = "Lua cheia";
+        } else if (dia >= 17 && dia <= 22) {
+            faseLua = "Lua minguante";
+        } else {
+            faseLua = "Lua crescente";
+        }
+
+        div_mensagem.innerHTML = "Dia sorteado: " + dia + "<br>Fase da Lua: " + faseLua;
+    }
+</script>

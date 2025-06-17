@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Combo</title>
+</head>
+<body>
+  <select id="ipt_bandeira">
+    <option value="verde">Bandeira Verde</option>
+    <option value="amarela">Bandeira Amarela</option>
+    <option value="vermelha">Bandeira Vermelha</option>
+  </select>
+  <button onclick="selecionar()">Selecionar</button>
+</body>
+</html>
+<script>
+  function selecionar() {
+    var bandeira = ipt_bandeira.value;
+    alert('Bandeira selecionada: ' + bandeira);
+  }
+</script>

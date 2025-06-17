@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação Escolar</title>
+</head>
+<body>
+    
+    Informe a Nota do Aluno:
+    <input type="number" id="input_nota">
+
+    <br><br>
+
+    Informe a frequência do Aluno:
+    <input type="number" id="input_freq">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Avaliar Aluno</button>
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var nota = input_nota.value;
+        var freq = input_freq.value;
+
+        if( nota >= 6 && freq >= 75){
+            alert("Parabéns! Aprovado!");
+        } else{
+            alert("Infelizmente, não foi desta vez!");
+        }
+    }
+</script>

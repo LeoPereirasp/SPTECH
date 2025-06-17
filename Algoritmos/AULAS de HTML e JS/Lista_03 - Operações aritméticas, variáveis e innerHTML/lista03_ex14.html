@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball</title>
+</head>
+<body>
+    Digite o Ki base:
+    <input type="number" id="input_ki">
+
+    <button onclick="ssj()">SSJ</button>
+    <button onclick="ssj2()">SSJ2</button>
+    <button onclick="ssj3()">SSJ3</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function ssj() {
+       var kissj = Number(input_ki.value) * 50
+        div_mensagem.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${kissj}`
+    }
+
+    function ssj2() {
+        var kissj2 = Number(input_ki.value) * 100
+        div_mensagem.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${kissj2}`
+    }
+
+    function ssj3() {
+        var kissj3 = Number(input_ki.value) * 200
+        div_mensagem.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${kissj3}`
+    }
+</script>

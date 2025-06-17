@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça as frutas</title>
+</head>
+<body>
+    <span>Registre os nomes dos projetos já feitos na sua vida:</span>
+    <input type="text" id="ipt_projeto"><br>
+    <button onclick="adicionar()">Registrar projeto</button>
+    <button onclick="mostrar()">Mostra projetos</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    const vetor = [];
+    
+    function adicionar(){
+        div_resultado.innerHTML = "";
+        var tamanhoVetor = vetor.length;
+        const Projeto = ipt_projeto.value;
+        vetor.push(Projeto);
+        let contador = 0;
+        
+        for(let i = 0; i <= tamanhoVetor; i++){
+            contador++;
+
+            if(contador <= 4){
+                var nivel = "Júnior"
+            } else if(contador >= 13){
+                nivel = "Senior"
+            } else {
+                nivel = "Pleno"
+            }
+
+            div_resultado.innerHTML = `Você já fez ${contador} projetos. Por isso, você é um profissional ${nivel}`;
+        }   
+    }
+    
+    function mostrar(){
+        var tamanhoVetor = vetor.length;
+        for(var i = 1; i <= tamanhoVetor; i++){
+            div_resultado.innerHTML += `<br>${vetor[tamanhoVetor - i]}`
+        }
+    }
+</script>

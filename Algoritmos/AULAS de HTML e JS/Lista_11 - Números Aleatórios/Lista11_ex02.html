@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times</title>
+</head>
+<body>
+
+    <button onclick="Sortear()">Sortear Time</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        function Sortear() {
+            var time = Math.floor(Math.random() * 4); 
+            var imagem = "";
+            
+            if (time == 0) {
+                imagem = ' <img src="https://i.pinimg.com/736x/ca/ce/4d/cace4d0f7c961f0c1fcdfb6ee17cb801.jpg" height="150"><br>Corinthians';
+            } else if (time == 1) {
+                imagem = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/800px-Palmeiras_logo.svg.png" height="150"><br>Palmeiras';
+            } else if (time == 2) {
+                imagem = ' <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/770px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png" height="150"><br>São Paulo';
+            } else if (time == 3) {
+                imagem = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_Logo.png/250px-Santos_Logo.png" height="150"><br>Santos';
+            }
+
+            div_mensagem.innerHTML = imagem;
+        }
+    </script>
+
+</body>
+</html>
+
+
+       
+       
+

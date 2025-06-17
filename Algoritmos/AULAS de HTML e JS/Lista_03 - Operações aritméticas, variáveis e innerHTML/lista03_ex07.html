@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recebimento</title>
+</head>
+<body>
+    
+    <div id="div_contagem"> Saldo Atual R$: 0 </div>
+
+    <br><br>
+
+    <button onclick="pagar()">Pagar 50</button>
+
+    <button onclick="receber()">Receber 100</button>
+
+</body>
+</html>
+
+<script>
+
+    var contador = 0;
+
+    function pagar(){
+        contador = contador - 50;
+        div_contagem.innerHTML = "Pagamento de R$50 efetuado! Saldo atual R$" + contador;    
+    }
+
+    function receber(){
+        contador = contador + 100;
+        div_contagem.innerHTML = "Transferência de R$100 recebida! Saldo atual R$" + contador;    
+    }
+
+
+</script>

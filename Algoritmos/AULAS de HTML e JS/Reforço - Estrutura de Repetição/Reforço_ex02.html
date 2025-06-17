@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Divisores e Primos</title></head>
+<body>
+  <h2>2. Divisores + Verificação de Primo</h2>
+  <input type="number" id="num2" min="0" max="100" placeholder="Digite entre 0 e 100">
+  <button onclick="verificarPrimo()">Verificar</button>
+  <div id="resultado2"></div>
+
+  <script>
+    function verificarPrimo() {
+      const num = parseInt(document.getElementById("num2").value);
+      const res = document.getElementById("resultado2");
+      if (num < 0 || num > 100) {
+        res.innerHTML = "Número fora do intervalo permitido.";
+        return;
+      }
+      let divisores = [];
+      for (let i = 1; i <= num; i++) {
+        if (num % i === 0) divisores.push(i);
+      }
+      let texto = `<strong>Divisores do Número ${num}:</strong><br>${divisores.join("<br>")}`;
+      if (divisores.length === 2) texto += `<br><br>O número ${num} é um número primo.`;
+      res.innerHTML = texto;
+    }
+  </script>
+</body>
+</html>

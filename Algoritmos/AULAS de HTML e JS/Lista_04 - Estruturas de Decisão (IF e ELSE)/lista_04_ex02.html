@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joka</title>
+</head>
+<body>
+    Quantas latinhas de refrigerantes você bebe por dia
+    <input type="number" id="input_quant">
+
+    <br><br>
+
+    <button onclick="calcular()">Quantos Refris?</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var quant = Number(input_quant.value);
+        var calc = quant * 365;
+
+        div_mensagem.innerHTML = calc ;
+        if (calc >= 500)
+        div_mensagem.innerHTML = calc += " Cuidado com a diabetes!";
+    }
+</script>

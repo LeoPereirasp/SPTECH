@@ -1,0 +1,23 @@
+// Definições dos pinos e variáveis
+const int PINO_SENSOR_TEMPERATURA = A0;  // Pino conectado ao sensor LM35
+float temperaturaCelsius;               // Variável para armazenar a temperatura em Celsius
+
+// Função de inicialização
+void setup() {
+  Serial.begin(9600);  // Inicializa a comunicação serial a 9600 bps
+}
+
+// Função principal de execução contínua
+void loop() {
+  // Lê o valor analógico do sensor, converte para temperatura em Celsius
+  int valorLeitura = analogRead(PINO_SENSOR_TEMPERATURA);
+  temperaturaCelsius = (valorLeitura * 5.0 / 1023.0) / 0.01;
+  
+  // Exibe a temperatura no monitor serial
+  Serial.print("Temperatura: ");
+  Serial.print(temperaturaCelsius);
+  Serial.println(" C");
+  
+  // Aguarda 2 segundos antes da próxima leitura
+  delay(2000);
+}

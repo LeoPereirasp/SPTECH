@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Filmes Favoritos</title>
+</head>
+<body>
+    Nome do filme favorito:
+    <input type="text" id="input_filme">
+    <button onclick="cadastrarFilme()">Cadastrar filme</button>
+
+    <br><br>
+
+    <button onclick="verFavoritos()">Ver Favoritos</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        var lista_filmes = [];
+
+        function cadastrarFilme() {
+            var filme = input_filme.value.trim();
+            if (filme !== "") {
+                lista_filmes.push(filme);
+                div_mensagem.innerHTML = "Filme cadastrado com sucesso!";
+                input_filme.value = "";
+            }
+        }
+
+        function verFavoritos() {
+            if (lista_filmes.length === 0) {
+                div_mensagem.innerHTML = "Nenhum filme cadastrado ainda.";
+                return;
+            }
+
+            var mensagem = "<strong>Filmes Favoritos:</strong><br>";
+            for (var i = 0; i < lista_filmes.length; i++) {
+                mensagem += `${i + 1}. ${lista_filmes[i]}<br>`;
+            }
+
+            mensagem += `<br>Total: ${lista_filmes.length}<br><br>`;
+
+            var maisGosta = lista_filmes[0];
+            var menosGosta = lista_filmes[lista_filmes.length - 1];
+
+            mensagem += `O filme que mais gosta é ${maisGosta}.<br>`;
+            mensagem += `E desses, o que menos gosta é ${menosGosta}.`;
+
+            div_mensagem.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>

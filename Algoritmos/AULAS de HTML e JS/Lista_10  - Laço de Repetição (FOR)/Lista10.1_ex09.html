@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pares no Intervalo   </title>
+</head>
+<body>
+
+    Mínimo:
+    <input type="number" id="input_min">
+
+    <br><br>
+
+    Máximo:
+    <input type="number" id="input_max">
+
+    <br><br>
+
+    <button onclick="Contar()"> S2 Pares </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Contar(){
+
+        var min = Number(input_min.value);
+        var max = Number(input_max.value);
+            
+        if(max > min){
+            var mensagem = "";
+            for(var contador = min; contador <= max; contador++){
+
+            if (contador % 2 == 0) {
+                mensagem += `${contador} <br>`;
+            }
+        }
+            div_mensagem.innerHTML = mensagem;
+
+        } else {
+            alert("Informe um intervalo crescente");
+        }    
+    }
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo - Vetores</title>
+</head>
+<body>
+  <input type="text" id="ipt_nome_fruta">
+  <button onclick="adicionar()">Adicionar Fruta</button>
+
+  <button onclick="verResumo()">Ver resumo</button>
+  <button onclick="exibirVetor()">Exibir vetor</button>
+
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+  //                 0        1        2
+  const vetor = [ "Goiaba", "Uva", "Morango" ];
+
+  function verResumo() {
+    const tamanhoVetor = vetor.length;
+    const primeiraFruta = vetor[0];
+    const ultimaFruta = vetor[tamanhoVetor - 1];
+
+    div_resultado.innerHTML = `
+    Tamanho do vetor: ${tamanhoVetor}<br>
+    Primeira fruta: ${primeiraFruta}<br>
+    Última fruta: ${ultimaFruta}<br>
+    `;
+  }
+
+  // DESAFIO: Alterar a função exibirVetor
+  // para mostrar as frutas nesse formato:
+  // 1° fruta - Goiaba
+  // 2° fruta - Uva
+  // 3° fruta - Morango
+  function exibirVetor() {
+    div_resultado.innerHTML = "";
+    for (let i = 0; i < vetor.length; i++) {
+      div_resultado.innerHTML += `${i + 1}° fruta - ${vetor[i]}<br>`;
+    }
+  }
+
+  function adicionar() {
+    let nomeFruta = ipt_nome_fruta.value;
+
+    if (nomeFruta == "") {
+      alert("Fruta inválida");
+      return;
+    }
+
+    if (vetor.indexOf(nomeFruta) != -1) {
+      alert("Fruta já existe na lista");
+      return;
+    }
+
+    vetor.push(nomeFruta);
+    alert("Fruta adicionada com sucesso! :D");
+  } 
+</script>

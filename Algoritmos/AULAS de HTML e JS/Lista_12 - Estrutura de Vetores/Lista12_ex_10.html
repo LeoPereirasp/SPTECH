@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Linhas de Ônibus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background-color: #f4f4f4;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    #resultadoBusca {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Linhas de Ônibus da Semana</h2>
+
+  <!-- Cadastro de linhas -->
+  <input type="text" id="linhaBusao" placeholder="Digite o nome da linha de ônibus" />
+  <button onclick="gravarBusao()">Gravar Busão</button>
+
+  <!-- Lista de linhas gravadas -->
+  <ul id="listaBusoes"></ul>
+
+  <!-- Campo de busca -->
+  <input type="text" id="buscaLinha" placeholder="Pesquisar linha já pega" />
+  <button onclick="pesquisarLinha()">Pesquisar</button>
+
+  <!-- Resultado da pesquisa -->
+  <p id="resultadoBusca"></p>
+
+  <script>
+    const linhas = [];
+
+    function gravarBusao() {
+      const input = document.getElementById('linhaBusao');
+      const nome = input.value.trim();
+      if (nome !== "") {
+        linhas.push(nome);
+        input.value = "";
+        input.focus();
+        atualizarLista();
+      }
+    }
+
+    function atualizarLista() {
+      const lista = document.getElementById('listaBusoes');
+      lista.innerHTML = "";
+
+      for (let i = linhas.length - 1; i >= 0; i--) {
+        const li = document.createElement('li');
+        li.textContent = `${linhas[i]}`;
+        lista.appendChild(li);
+      }
+    }
+
+    function pesquisarLinha() {
+      const busca = document.getElementById('buscaLinha').value.trim().toLowerCase();
+      const resultado = document.getElementById('resultadoBusca');
+      
+      if (busca === "") return;
+
+      let indices = [];
+
+      linhas.forEach((linha, index) => {
+        if (linha.toLowerCase() === busca) {
+          indices.push(index + 1); // usamos +1 porque o usuário vê posições começando do 1
+        }
+      });
+
+      if (indices.length === 0) {
+        resultado.textContent = "Você nunca pegou essa linha.";
+      } else {
+        resultado.textContent = `Você já pegou essa linha ${indices.length} vez(es), nessa ordem: ${indices.join(", ")}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-vindo ao JS</title>
+</head>
+<body>
+  <h1>Bem-vindo ao JavaScript</h1>
+  <p>Digite o seu nome: </p>
+  <input id="ipt_nome"/>
+  <button onclick="exibirMensagem()">Enviar</button>
+</body>
+</html>
+<script>
+  function exibirMensagem() {
+    alert("Olá " + ipt_nome.value + ", seja bem-vindo(a) ao JavaScript");
+  }
+</script>

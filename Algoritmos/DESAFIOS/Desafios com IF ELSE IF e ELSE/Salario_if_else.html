@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmolândia</title>
+</head>
+<body>
+    
+    Salário:
+    <input type="number" id="input_salario">
+
+    <br><br>
+
+    Adicional Mensal:
+    <input type="number" id="input_add">
+
+    <br><br>
+
+    Bônus:
+    <input type="number" id="input_bonus">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Analisar Minha Renda </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function Verificar(){
+        var salario = Number(input_salario.value);
+        var add = Number(input_add.value);
+        var bonus = Number(input_bonus.value);
+
+        var brutobruto = bonus + add + salario;
+        var bruto = brutobruto;
+
+        if( bruto >= 10000){
+            var ir = bruto * 0.125;
+            bruto = bruto - ir;
+            var inss = bruto * 0.1;
+            var fgts = bruto * 0.08;
+            var liquido = bruto - ( fgts + inss );
+        } else {
+            var inss = bruto * 0.1;
+            var fgts = bruto * 0.08;
+            var liquido = bruto - ( fgts + inss );
+        }
+
+        div_mensagem.innerHTML = `ANÁLISE DA SUA RENDA <br>
+                                    Com o salário de R$${ salario }, com adicional de R$${ add } e bônus de R$${ bonus }, você tem:<br> 
+                                    Bruto: R$${ brutobruto} <br>
+                                    IR: R$${ ir } <br>
+                                    INSS: R$${ inss } <br>
+                                    FGTS: R$${ fgts } <br>
+                                    Líquido: R$${ liquido }<br>`;
+
+        if( liquido > 2500){
+            var poupar = liquido * 0.15;
+            var economia = poupar * 12;
+            div_mensagem.innerHTML +=`Com a renda de R$${ liquido } é recomendado poupar R$${ poupar }, para que em um ano tenha poupado R$${ economia }" `;
+        } else {
+            div_mensagem.innerHTML +=`Com a renda de R${ liquido }, é recomendado obter renda extra para realizar uma poupança`
+        }
+    }
+</script>

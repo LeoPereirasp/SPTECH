@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Sistema de Recompensas e Descontos</title>
+</head>
+<body>
+    <h1>Sistema de Recompensas e Descontos</h1>
+    <p>Quantos produtos comprados pelo cliente:</p>
+    <input type="number" id="ipt_quantidade_produtos">
+    <p>Total gasto:</p>
+    <input type="number" id="ipt_valor_total"><br><br>
+    <span>Cliente VIP:</span>
+    <input type="checkbox" id="check_cliente_vip"><br><br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var quantidade_produtos = Number(ipt_quantidade_produtos.value);
+        var valor_total = Number(ipt_valor_total.value);
+        var cliente_vip = check_cliente_vip.checked;
+        var desconto = 0;
+        var recompensa = 0;
+        exibir.innerHTML = '';
+
+        if(quantidade_produtos > 10 && valor_total > 1000 && cliente_vip){
+            desconto = 15;
+            recompensa = 150;
+        }
+        
+        if (quantidade_produtos > 10 && valor_total > 500 || quantidade_produtos > 5 && cliente_vip){
+            desconto += 10;
+        } 
+
+        if (quantidade_produtos > 10 && valor_total > 500) {
+            recompensa = 100;
+        }
+
+        if (quantidade_produtos > 5 && valor_total > 200 || quantidade_produtos > 5 && cliente_vip){
+            recompensa += 50;
+        }
+        
+        if (quantidade_produtos >= 6 && quantidade_produtos <= 10 && valor_total > 200 || quantidade_produtos > 5 && cliente_vip){
+            desconto += 5;
+        }
+
+        exibir.innerHTML = `<b>Relátorio de Compra</b><br>
+        Valor total: R$ ${valor_total.toFixed(2)}<br>
+        Cliente VIP: ${cliente_vip ? 'Sim' : 'Não'}<br>
+        Desconto(%): ${desconto}%<br>
+        Pontos de recompensa: ${recompensa}<br>`;
+}
+</script>

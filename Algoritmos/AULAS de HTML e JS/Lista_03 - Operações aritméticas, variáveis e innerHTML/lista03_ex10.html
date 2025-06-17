@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votação</title>
+</head>
+<body>
+    Quantidade de votos Candidato A:
+    <input type="text" id="input_a">
+
+    <br><br>
+
+    Quantidade de votos Candidato B:
+    <input type="text" id="input_b">
+
+    
+    <br><br>
+
+    Quantidade de votos brancos:
+    <input type="text" id="input_branco">
+
+    
+    <br><br>
+
+    Quantidade de votos nulos:
+    <input type="text" id="input_nulo">
+
+    <br><br>
+
+    <button onclick="imprimir()">Resultado da Eleição</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script> 
+
+    function imprimir() {
+        var A = Number (input_a.value);
+        var B = Number (input_b.value);
+        var I = Number (input_branco.value) + Number(input_nulo.value);
+        var total = A + B + I;
+
+        div_mensagem.innerHTML = `
+        Candidato A: ${A / total * 100}% (${A}) votos <br>
+        Candidato B: ${B / total * 100}% (${B}) votos <br>
+        Inválidos: ${I / total * 100}% (${I}) votos <br>
+        Total de votos: ${total}`
+    }
+
+</script>

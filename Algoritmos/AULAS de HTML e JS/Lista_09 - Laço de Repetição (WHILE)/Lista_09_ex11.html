@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tabuada Colorida</title>
+</head>
+<body>
+    
+    Informe até que número vai a sua tabuada:
+    <select id="select_tabuada">
+     <option> 2 </option>
+     <option> 3 </option>
+     <option> 4 </option>
+     <option> 5 </option>
+     <option> 6 </option>
+     <option> 7 </option>
+     <option> 8 </option>
+     <option> 9 </option>        
+    </select>
+
+    <br><br>
+
+    Informe até qual número você quer visualizar a tabuada:
+    <input type="text" id="input_num">
+
+    <br><br>
+
+    <button onclick="Contar()"> Ver Tabuada! </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function Contar(){
+        var tabuada = Number(select_tabuada.value);
+        var num = Number(input_num.value);
+        var contador = 0;
+        var mensagem = "";
+
+        while(contador < num) {
+            contador++;
+            var num_tabuada = tabuada * contador;
+            var resto = contador % 2;
+
+            if( resto == 0){
+                mensagem +=`<span style = "color: blue"> ${tabuada} x ${contador} = ${num_tabuada} <br></span>`;
+            } else {
+                mensagem +=`<span style = "color: red"> ${tabuada} x ${contador} = ${num_tabuada} <br></span>`;
+            }
+            div_mensagem.innerHTML= mensagem;
+        }
+        
+    }
+</script>

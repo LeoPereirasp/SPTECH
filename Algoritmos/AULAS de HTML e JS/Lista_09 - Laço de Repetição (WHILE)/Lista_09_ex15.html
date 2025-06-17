@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Um elefante, incomoda muita gente... </title>
+</head>
+<body>
+
+    Informe a Quantidade de elefantes:
+    <input type="text" id="input_elefante">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Atazanar a Médium </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+
+<script>
+    function Verificar(){
+        var elefante = Number(input_elefante.value);
+        var incomodam = " incomodam, ";
+        var elefante1 = "1 elefante incomoda muita gente!";
+        var mensagem = "";
+        var contador = 2;
+
+        if (elefante == 1){
+            mensagem = "1 elefante incomoda muita gente!";
+        }
+        while(contador <= elefante){
+            incomodam += " incomodam, ";
+            mensagem += `<br>${elefante1} <br> ${contador} elefantes,  ${ incomodam } muita mais!<br>`;
+            contador ++;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

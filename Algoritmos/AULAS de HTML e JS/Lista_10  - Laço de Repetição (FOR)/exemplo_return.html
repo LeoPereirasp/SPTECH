@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="ipt_numero" type="number"/>
+  <input id="ipt_nome" type="text"/>
+  <button onclick="validar()">Validar</button>
+</body>
+</html>
+<script>
+  function validar() {
+    var numero = Number(ipt_numero.value);
+    var nome = ipt_nome.value;
+
+    if (numero < 0) {
+      alert("Número menor que 0");
+      return;
+    }
+
+    if (nome.length < 2) {
+      alert("O nome não pode ter menos de 2 letras");
+      return;
+    }
+
+    alert("Tudo certo chefe!");
+  }
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Estoque</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background: #f5f5f5;
+    }
+
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    ul {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fff;
+      margin-bottom: 5px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Controle de Estoque</h2>
+
+  <input type="number" id="precoProduto" placeholder="Digite o preço do produto" />
+  <button onclick="cadastrarPreco()">Cadastrar</button>
+
+  <button onclick="atualizarEstoque()">Atualizar Estoque</button>
+
+  <ul id="listaEstoque"></ul>
+
+  <p id="resultado"></p>
+
+  <script>
+    const precos = [];
+
+    function cadastrarPreco() {
+      const preco = parseFloat(document.getElementById('precoProduto').value);
+      if (!isNaN(preco) && preco > 0) {
+        precos.push(preco);
+        document.getElementById('precoProduto').value = "";
+      }
+    }
+
+    function atualizarEstoque() {
+      const lista = document.getElementById('listaEstoque');
+      const resultado = document.getElementById('resultado');
+      lista.innerHTML = "";
+
+      let total = 0;
+
+      for (let i = precos.length - 1; i >= 0; i--) {
+        const li = document.createElement('li');
+        li.textContent = `Produto ${precos.length - i}: R$ ${precos[i].toFixed(2)}`;
+        lista.appendChild(li);
+        total += precos[i];
+      }
+
+      resultado.textContent = `Você tem ${precos.length} produtos cadastrados em estoque. Seu estoque vale R$ ${total.toFixed(2)}.`;
+    }
+  </script>
+
+</body>
+</html>

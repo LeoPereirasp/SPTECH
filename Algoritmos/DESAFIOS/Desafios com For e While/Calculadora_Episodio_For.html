@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de episódio - One Piece</title>
+</head>
+<body>
+    <h1>One Piece</h1>
+    <span>Episódio que deseja começar a assistindo:</span>
+    <input type="number" id="ipt_episodio"><br><br>
+    <span>Quantidade de tempo disponível</span>
+    <input type="number" id="ipt_tempo"><br><br>
+    <span>Unidade de tempo em:</span>
+    <select id="slc_tempo">
+        <option value="0">-- Selecione uma opção --</option>
+        <option value="1">Hora</option>
+        <option value="2">Minuto</option>
+    </select><br><br>
+    <span>Pular abertura?</span>
+    <select id="slc_abertura">
+        <option value="0">-- Selecione uma opção --</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select><br><br>
+    <span>Pular encerramento?</span>
+    <select id="slc_encerramento">
+        <option value="0">-- Selecione uma opção --</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select><br><br>
+    <button onclick="calcular()">Assistir episódios</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var ep = Number(ipt_episodio.value);
+        var qtdTempo = Number(ipt_tempo.value);
+        var unidadeTemp = Number(slc_tempo.value);
+        var abertura = Number(slc_abertura.value);
+        var encerramento = Number(slc_encerramento.value);
+        var epAtual = ep;
+        var tempoAssistido = 0;
+        var tempoEp = 24;
+        var tempoh = 0;
+        var tempom = 0;
+        div_mensagem.innerHTML = "";
+
+        if (ep >= 1 && ep <= 1100){
+
+            if(unidadeTemp == 1){
+                tempoh = qtdTempo * 60;
+                tempom = tempoh;
+            } else if(unidadeTemp == 2){
+                tempom = qtdTempo;
+            }
+
+            if(abertura == 1){
+                tempoEp -= 2;
+            }
+
+            if(encerramento == 1){
+                tempoEp -= 2;
+            }
+
+            for (; tempom > 0; epAtual++) {
+                div_mensagem.innerHTML += `<br>Episódio: ${epAtual}<br>`;
+
+                for (var contador = 1; contador <= tempoEp && tempom > 0; contador++) {
+                    div_mensagem.innerHTML += `Minuto ${contador}: `;
+                    
+                    if(tempom > 0){
+                        if(contador <= tempoEp){
+                            if (abertura == 2 && contador <= 2){
+                                div_mensagem.innerHTML += `Assistindo Abertura<br>`;
+                                tempoAssistido += 1;
+                                tempom -= 1;
+                            } else if(abertura == 1 && encerramento == 2 && contador >= 21){
+                                div_mensagem.innerHTML += `Assistindo Encerramento<br>`;
+                                tempoAssistido += 1;
+                                tempom -= 1;
+                            } else if(abertura == 2 && encerramento == 2 && contador >= 23) {
+                                div_mensagem.innerHTML += `Assistindo Encerramento<br>`;
+                                tempoAssistido += 1;
+                                tempom -= 1;
+                            } else {
+                                div_mensagem.innerHTML += `Assistindo o Episódio<br>`;
+                                tempoAssistido += 1;
+                                tempom -= 1;
+                            }
+                        }
+                    }
+                }
+            }
+            div_mensagem.innerHTML += `<br>Fim dos episódios!<br>Foram Assistidos: ${tempoAssistido / tempoEp} episódios`;
+        } else{
+            alert("O número do episódio é inválido");
+        }
+    }
+</script>

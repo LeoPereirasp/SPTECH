@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Fatorial</title></head>
+<body>
+  <h2>6. Cálculo do Fatorial</h2>
+  <input type="number" id="num6" placeholder="Digite de 1 a 20">
+  <button onclick="fatorial()">Calcular Fatorial</button>
+  <div id="resultado6"></div>
+
+  <script>
+    function fatorial() {
+      const n = parseInt(document.getElementById("num6").value);
+      const res = document.getElementById("resultado6");
+
+      if (n < 1 || n > 20) {
+        res.innerHTML = "Digite um número entre 1 e 20.";
+        return;
+      }
+
+      let f = 1, calculo = [];
+      for (let i = n; i >= 1; i--) {
+        f *= i;
+        calculo.push(i);
+      }
+
+      res.innerHTML = `Fatorial de ${n} = ${f}<br>Cálculo: ${calculo.join(" × ")}`;
+    }
+  </script>
+</body>
+</html>

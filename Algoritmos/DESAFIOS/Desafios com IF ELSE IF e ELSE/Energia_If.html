@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Quantidade de energia (kWh)
+    <input id="input_kwh" type="number">
+
+    <br><br>
+
+    Baderia tarifária da enregia
+    <input id="input_bandeira" type="text">
+
+    <br><br>
+
+    Quantidade de MB (Megabyte) do plano de internet
+    <input id="input_mb" type="number">
+
+    <br><br>
+
+    Possui linha telefonica vinculada?
+    <input id="input_telefone" type="text">
+
+    <br><br>
+
+    <button onclick="Calcular()">Calcular Despesas Fixas</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function Calcular(){
+        var kwh = Number(input_kwh.value);
+        var bandeira = input_bandeira.value;
+        var mb = Number(input_mb.value);
+        var telefone = input_telefone.value;
+        
+        var conta_energia = 0;
+        var conta_internet = mb * 0.8;
+        if(bandeira == "verde"){
+            var conta_energia = kwh * 0.75;
+        }
+
+        if(bandeira == "amarela"){
+            var conta_energia = kwh * 0.90;
+        }
+
+        if(bandeira == "vermelha"){
+            var conta_energia = kwh * 1;
+        }
+
+        if(kwh <= 50){
+            conta_energia = conta_energia * 0.9;
+        }
+        
+        if(telefone == "sim" ){
+            conta_internet = conta_internet + (conta_internet * 0.35);
+        }
+
+        if(telefone == "não"){
+            conta_internet = conta_internet - (conta_internet * 0.075 );
+        }
+
+        var total = conta_energia + conta_internet;
+
+
+        div_mensagem.innerHTML = ` Com o consumo de ${kwh} kWh na bandeira ${bandeira}, a conta de energia totaliza R$ ${conta_energia}.<br><br>
+        Com o consumo de ${mb} MB de internet, o valor do plano de internet/telefone totaliza R$ ${conta_internet}.<br><br>
+        Gasto total de despesas mensal: R$ ${total}.<br><br>`
+
+    }
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variavel Global</title>
+  </head>
+  <body>
+    <button onclick="incrementar()">Contar</button>
+    <div id="div_mensagem"></div>
+</html>
+
+<script>
+  // declarando as variáveis GLOBAIS "contador" e "contadorDezenas"
+  var contador = 0;
+  var contadorDezenas = 10;
+
+  function incrementar() {  
+    contador = contador + 1; // Incrementa o valor de "contador" em 1, utilizando "seu valor atual + 1"
+    contadorDezenas = contadorDezenas + 10; // Incrementa o valor de "contadorDezenas" em 10, utilizando "seu valor atual + 10"
+    
+    /*
+      Mensagens anteriores, exibidas na caixa de alerta utilizando o conceito de CONCATENAÇÃO para composição da mensagem de texto
+          alert("Contagem atual: " + contador);
+          alert("Contagem atual de dezenas " + contadorDezenas);
+    */
+
+   // Mensagem atual, exibida no conteúdo da div identificada como "div_mensagem", utilizando o conceito de INTERPOLAÇÃO para composição da mensagem de texto
+   div_mensagem.innerHTML = `Contagem atual: ${contador}<br> Contador atual de dezenas: ${contadorDezenas}`; 
+   div_mensagem.innerHTML = "Contagem atual: " + contador + "<br> Contador atual de dezenas: " + contadorDezenas; 
+  }
+
+  /*
+    CONCEITO DE "INTERPOLAÇÃO": 
+      Em JS, existem três formas de criação/manipulação de textos, como: 
+          'texto comum em aspas simples'
+          "texto comum em aspas duplas"
+          `texto comum em crase / acento grave`
+
+      Todos os exemplos acima representam STRINGS (textos), que serão tratados da mesma forma pelo JS.
+      
+      Porém, a `CRASE` possui algumas características e funcionalidades adicionais em comparação aos outros tipos de texto.
+      Quando precisamos estruturar uma mensagem como "Olá, <NOME_DO_USUARIO>!", podemos juntar os valores da mensagem de duas formas, sendo:
+
+          Concatenação: 
+              "Olá, "  +  input_nome.value  +  "!"  => "Olá, Fulano!"
+
+          Interpolação (template strings): 
+              `Olá, ${input_nome.value}!`           => "Olá, Fulano!"
+
+      O resultado dos dois comandos acima é exatamente o mesmo, o que muda é somente a sintaxe/estrutura do código.
+      - Na concatenação, realizamos a junção dos textos utilizando: "trecho 1" + "trecho 2" + "trecho 3"...
+      - Já na interpolação, delimitamos o texto inteiro com crases e colocamos os valores a serem INTERPOLADOS/substituídos dentro de ${}.
+          A sintaxe de ${} para interpolar valores, funciona somente caso o texto seja englobado por `CRASE`.
+          Ao utilizar "${a}" com "ASPAS" ao invés de `CRASE`, a interpolação não funcionará, exibindo exatamente "${A}" na mensagem. 
+  
+      Exemplos: 
+
+          CONCATENAÇÃO -> alert("Meu nome é "  + nome + ", minha idade é " + idade);
+          INTERPOLAÇÃO -> alert(`Meu nome é ${nome}, minha idade é ${idade}`);
+    
+
+    CONCEITO DE "innerHTML": 
+          
+      Ao manipular elementos HTML via JS, é NECESSÁRIO ter um identificador para o elemento.
+      Para manipular seu conteúdo, devemos utilizar o atributo "innerHTML", que representa todo o HTML dentro daquela tag (O "HTML interior").
+      O "innerHTML" pode ser usado para visualizar e para manipular o conteúdo da div.
+
+      -- FAÇA TESTES NO CONSOLE PARA CHECAR! 
+
+      Ao utilizar o comando:   
+          alert(div_mensagem.innerHTML)
+      O alerta irá capturar o conteúdo interior que existe no elemento "div_mensagem" e exibí-lo.
+
+      Ao utilizar o comando:    
+          div_mensagem.innerHTML = "abc"
+      O conteúdo interior da "div_mensagem" será reatribuído/sobrescrito com o valor do texto "abc", SOBRESCREVENDO o conteúdo anterior
+      
+      Ao utilizar o comando:    
+          div_mensagem.innerHTML = div_mensagem.innerHTML + 'algoritmos'
+      O conteúdo interior da "div_mensagem" será incrementado/concatenado com o texto 'algoritmos', preservando seu conteúdo anterior
+
+      Ao manipular o conteúdo do elemento, podemos implementar tags HTML, que serão interpretadas e renderizadas devidamente, como: 
+          div_mensagem.innerHTML = `
+            <h1>Testando H1 no innerHTML!</h1>
+            <input />
+          `
+      Com o comando acima, as tags <h1> e <input> serão renderizadas dentro da "div_mensagem", por exemplo.
+      
+  */
+</script>

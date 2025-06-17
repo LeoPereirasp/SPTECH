@@ -1,0 +1,21 @@
+// Definições dos pinos e variáveis
+const int PINO_SENSOR_LDR = A4;  // Pino conectado ao sensor LDR
+int valorLuminosidade;          // Variável para armazenar o valor da luminosidade
+
+// Função de inicialização
+void setup() {
+  Serial.begin(9600);  // Inicializa a comunicação serial a 9600 bps
+}
+
+// Função principal de execução contínua
+void loop() {
+  // Lê o valor analógico do sensor LDR
+  valorLuminosidade = analogRead(PINO_SENSOR_LDR);
+
+  // Exibe o valor da luminosidade no monitor serial
+  Serial.print("Luminosidade: ");
+  Serial.println(valorLuminosidade);
+
+  // Aguarda 2 segundos antes da próxima leitura
+  delay(2000);
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz</title>
+</head>
+<body>
+
+    Linhas:
+    <input type="number" id="input_linhas">
+
+    <br><br>
+
+    Caracteres:
+    <input type="number" id="input_caracteres">
+
+    <br><br>
+
+    <button onclick="Contar()"> Exibir Matriz </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Contar(){
+        var mensagem = "";
+        var qtdlinhas = Number(input_linhas.value);
+        var qtdcaracteres = Number(input_caracteres.value);
+
+       for( var linha = 1; linha <= qtdlinhas; linha++){
+        var frase = "";
+            for( var caractere = 1; caractere <= qtdcaracteres; caractere++){
+                frase += `${linha}`
+            }
+        mensagem +=`${frase} <br>`;
+       }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentadoria</title>
+
+</head>
+<body>
+
+    Informe sua Idade: 
+    <input type="number" id="input_idade">
+
+    <br><br>
+
+    <button onclick="homem()">Aposentadoria Homem</button>
+    <button onclick="mulher()">Aposentadoria Mulher</button>
+
+</body>
+</html>
+
+<script>
+    function homem(){
+     var idade = input_idade.value;
+     var resultado = 70 - idade;
+    alert("Faltam  " + resultado + " anos para você se aposentar")
+    }
+
+    function mulher(){
+    var idade = input_idade.value;
+    var resultado = 60 - idade;
+        alert("Faltam " + resultado + " anos para você se aposentar" )
+    }
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio - Música</title>
+</head>
+<body>
+  <p>Quantas músicas deseja ouvir?</p>
+  <input type="number" id="ipt_quantidade">
+  <button onclick="reproduzir()">Começar o Show</button>
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+  function reproduzir() {
+    var quantidade = Number(ipt_quantidade.value);
+    var ultimaMusica;
+    var aprovadas = 0;
+    var reprovadas = 0;
+
+    for (var i = 0; i < quantidade; i++) {
+      var nomeMusica = prompt(`Digite o nome da ${i + 1}° musica`);
+
+      while (nomeMusica == ultimaMusica) {
+        nomeMusica = prompt("Essa música acabou de tocar, escolha outra:");
+      }
+
+      ultimaMusica = nomeMusica;
+      var gosta = prompt('Você gosta dessa música? (sim ou não)')
+          .toLowerCase();
+
+      if (gosta == "sim") {
+        aprovadas++;
+      } else if (gosta == "não") {
+        reprovadas++;
+      }
+
+      alert(`Tocando ${i + 1}ª música: [${nomeMusica}]`);
+    }
+
+    div_resultado.innerHTML = `
+    Músicas tocadas: ${quantidade}<br>
+    Músicas aprovadas: ${aprovadas}<br>
+    Músicas reprovadas: ${reprovadas}<br>
+    `;
+  }
+</script>

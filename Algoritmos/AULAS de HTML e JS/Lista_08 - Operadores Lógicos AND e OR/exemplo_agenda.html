@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Dia da semana:</p>
+  <input id="ipt_dia_semana" type="text"/>
+  <p>Horário:</p>
+  <input id="ipt_horario" type="number"/>
+  <button onclick="verificarAgenda()">Ver disponibilidade</button>
+</body>
+</html>
+<script>
+  function verificarAgenda() {
+    var diaSemana = ipt_dia_semana.value;
+    var horario = Number(ipt_horario.value);
+
+    var finalDeSemana = (diaSemana == 'Sábado' || diaSemana == 'Domingo');
+
+    if ((!finalDeSemana && horario >= 9 && horario <= 18) 
+        || (finalDeSemana && horario >= 9 && horario <= 12)) {
+          alert('Horário disponível');
+    } else {
+      alert('Não disponível');
+    }
+  }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilhente Único</title>
+</head>
+<body>
+    
+    Valor da passagem: 
+    <input type="number" id="input_valor">
+
+    <br><br>
+
+    Quantas passagens por mês:
+    <input type="text" id="input_passagens">
+
+    <br><br>
+
+    <button onclick="calcular()">Ver Economia</button>
+
+</body>
+</html>
+
+<script>
+function calcular(){
+    var valor = input_valor.value;
+    var quant = input_passagens.value;
+    var total = (valor * quant) / 2;
+    alert ("Você economizará R$" + total + " por mês" )
+}
+</script>

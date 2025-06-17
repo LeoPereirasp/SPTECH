@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  Indique o resultado:
+  <select id="ipt_resultado">
+    <option value="vitoria">Vitória</option>
+    <option value="empate">Empate</option>
+    <option value="derrota">Derrota</option>
+  </select>
+  <button onclick="registrar()">Registrar jogo</button><br>
+  Indique qual jogo deseja saber o resultado <input type="number" id="ipt_partida" oninput="verificarPartida()">
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+  const resultados = [];
+
+  function registrar() {
+    const resultado = ipt_resultado.value;
+    resultados.push(resultado);
+
+    let qtdVitorias = 0;
+    let qtdEmpates = 0;
+    let qtdDerrotas = 0;
+    let pontos = 0;
+
+    for (let i = 0; i < resultados.length; i++) {
+      if (resultados[i] == "vitoria") {
+        qtdVitorias++;
+        pontos += 3;
+      } else if (resultados[i] == "empate") {
+        qtdEmpates++;
+        pontos += 1;
+      } else if (resultados[i] == "derrota") {
+        qtdDerrotas++;
+      }
+    }
+
+    const pontosPossiveis = resultados.length * 3;
+    let aproveitamento = pontos / pontosPossiveis * 100;
+
+    div_resultado.innerHTML = `
+      O time teve: ${qtdVitorias} vitórias, ${qtdEmpates} empates, ${qtdDerrotas} derrotas<br>
+      Pontuação total: ${pontos} pontos<br>
+      Aproveitamento: ${aproveitamento.toFixed(2)}%<br>
+    `;
+  }
+
+  function verificarPartida() {
+    const partida = Number(ipt_partida.value);
+
+    if (partida <= 0 || partida > resultados.length) {
+      div_resultado.innerHTML = `Não foi cadastrado um ${partida}º jogo  `;
+      return;
+    }
+
+    let texto = "";
+
+    if (resultados[partida - 1] == "vitoria") {
+      texto = "ganhou";
+    } else if (resultados[partida - 1] == "derrota") {
+      texto = "perdeu";
+    } else {
+      texto = "empatou";
+    }
+
+    div_resultado.innerHTML = `No ${partida}° jogo o time ${texto}`;
+  }
+</script>

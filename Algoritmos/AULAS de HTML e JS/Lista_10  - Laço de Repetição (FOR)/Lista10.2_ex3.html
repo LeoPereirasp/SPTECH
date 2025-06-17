@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacidade Flexível</title>
+</head>
+<body>
+
+    Quantos passageiros o veículo suporta?
+    <input type="number" id="input_suporte">  
+    <br><br>
+    
+    Quantas pessoas vão entrar no carro?
+    <input type="number" id="input_pessoas">
+
+    <br><br>
+
+    <button onclick="Verificar()"> #Partiu Carona </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar() {
+        var suporte = Number(input_suporte.value);
+        var pessoas = Number(input_pessoas.value);
+        var mensagem = "";
+
+        for (var contador = 1; contador <= pessoas; contador++) {
+            if (contador == 1) {
+                mensagem += `Entrou o ${contador}º passageiro (que é o(a) motorista)<br>`;
+            } else if (contador <= suporte) {
+                mensagem += `Entrou o ${contador}º passageiro<br>`;
+            } else {
+                mensagem += `O ${contador}º passageiro terá que esperar!<br>`;
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

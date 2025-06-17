@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogar Dados</title>
+</head>
+<body>
+
+    <button onclick="Dado1()">Dado Jogador 1</button>
+
+    <br><br>
+
+    <button onclick="Dado2()">Dado Jogador 2</button>
+
+    <br><br>
+
+    <button onclick="Verificar()">Comparar Resultados!</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var dado1 = 0; 
+    var dado2 = 0; 
+
+    function Dado1(){
+        dado1 = Math.floor(Math.random() * 6) + 1; 
+        div_mensagem.innerHTML = "Jogador 1: " + dado1; 
+    }
+
+    function Dado2(){
+        dado2 = Math.floor(Math.random() * 6) + 1; 
+        div_mensagem.innerHTML += "<br>Jogador 2: " + dado2; 
+    }
+
+    function Verificar(){
+        var resultado = "";
+
+        if (dado1 > dado2) {
+            resultado = "Jogador 1 venceu!";
+        } else if (dado2 > dado1) {
+            resultado = "Jogador 2 venceu!";
+        } else {
+            resultado = "Empate!";
+        }
+        div_mensagem.innerHTML += "<br>" + resultado;
+    }
+</script>

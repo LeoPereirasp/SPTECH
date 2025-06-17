@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensação Térmica</title>
+</head>
+<body>
+    
+    Informe a Temperatura:
+    <input type="number" id="input_temp">
+
+    <br><br>
+
+    <button onclick="Analisar()"> Analisar Temperatura </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Analisar(){
+        var temp = Number(input_temp.value);
+
+        if(temp <= 14){
+            div_mensagem.innerHTML = "Congelante!";
+        } else if(temp <= 21 ){
+            div_mensagem.innerHTML = "Com Frio!";
+        } else if(temp <= 24 ){
+            div_mensagem.innerHTML = "Confortável!";
+        }else if(temp <= 31 ){
+            div_mensagem.innerHTML = "Com Calor!";
+            }else{
+                div_mensagem.innerHTML = "Calor Escaldante!";
+        }
+    }
+</script>

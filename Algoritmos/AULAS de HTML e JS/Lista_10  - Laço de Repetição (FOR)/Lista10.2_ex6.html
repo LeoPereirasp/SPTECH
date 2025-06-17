@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhando a Poupança</title>
+</head>
+<body>
+    
+    Quantos depósitos você fez no banco?<br>
+    <input type="number" id="input_depositos">
+
+    <br><br>
+
+    Qual o valor dos depósitos?<br>
+    <input type="number" id="input_valor">
+
+    <br><br>
+
+    <button onclick="Verificar()">Acompanhar Grana</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar() {
+        var depositos = Number(input_depositos.value);
+        var valor = Number(input_valor.value);
+        var mensagem = "";
+        var total = 0;
+
+        for (var contador = 1; contador <= depositos; contador++) {
+            total += valor;
+            mensagem += `${contador}º Mês: R$ ${total}<br>`;
+        }
+
+        mensagem += `<br>Total guardado: R$ ${total}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

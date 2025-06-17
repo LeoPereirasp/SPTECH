@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estrutura de Decisão</title>
+  </head>
+  <body>
+    Digitar um numero:
+    <input id="ipt_numero" type="number" />
+
+    <button onclick="verificar()">Verificar</button>
+  
+  </body>
+</html>
+
+<script>
+  /*
+      "if" significa "se" em português, uma palavra que normalmente indica alguma condição.
+      Nós a utilizamos no nosso dia-a-dia em situações como: 
+          "SE estiver calor VOU tomar sorvete"
+          "SE chover VOU abrir guarda-chuva"
+          "SE eu tiver dinheiro VOU comprar uma ferrari"
+      Como podemos analisar, o "se" da condição está atrelado à tomada de alguma decisão.
+
+      Utilizando a palavra-chave "if", o JS entende que está definindo uma "estrutura de decisão", 
+      que é uma estrutura de controle para tomada de decisões de acordo com determinadas condições.
+      
+      Composição da estrutura de decisão no JS: 
+          if (condicao) { ...código a ser executado... }
+
+          - if: a palavra reservada que indica ao JS que a seguir será definida uma estrutura de decisão;
+          - (condicao): é a condição de validação, onde CASO A CONDIÇÃO SEJA VERDADEIRA, executa todo o bloco de código delimitado pelas chaves;
+          - {}: as chaves indicam onde nossa estrutura de decisão começa e termina, delimitando o seu conteúdo;
+              o bloco de código das chaves será executado somente caso a condição seja verdadeira;
+  
+      Ou seja, quando o código for executado, o "if" será lido;
+      Na sequência, realizará o teste da condição, para validar se a condição é VERDADEIRA;
+      Caso a condição seja verdadeira, executará todo o código que estiver dentro das chaves (igual a uma função);
+      Mas caso a condição seja falsa, ignorará todo o bloco de código que está vinculado ao if (delimitado pelas chaves {});
+  
+      Para realizar as validações, temos os operadores RELACIONAIS, que servem para comparar valores 
+      Ao utilizar esses operadores, o resultado sempre será verdadeiro ou falso, como: 
+          +----------+----------------+---------+------------+
+          | operador | descrição      | exemplo | resultado  |
+          +----------+----------------+---------+------------+
+          |    <     | menor que      | 5 < 10  | verdadeiro |
+          |    >     | maior que      | 5 > 10  | falso      |
+          |    <=    | menor ou igual | 5 <= 9  | verdadeiro |
+          |    >=    | maior ou igual | 5 >= 2  | falso      |
+          |    ==    | igual a        | 5 == 5  | verdadeiro |
+          |    !=    | diferente de   | 5 != 2  | verdadeiro |
+          +----------+----------------+---------+------------+
+  */     
+  function verificar() {
+    var numero = Number(ipt_numero.value);
+
+    if (numero > 42) { // SE o número for MAIOR que 42
+      alert("O número é maior que 42");
+    }
+
+    if (numero <= 42) { // SE o número for MENOR ou IGUAL a 42
+      alert("O numero e menor ou igual a 42");
+    }
+    
+    // if (numero < 42) { // SE o número for MENOR que 42
+    //   alert("O número é menor que 42");
+    // }
+
+    // if (numero == 42) { // SE o número for IGUAL A 42
+    //   alert("O número é igual a 42");
+    // }
+  }
+</script>

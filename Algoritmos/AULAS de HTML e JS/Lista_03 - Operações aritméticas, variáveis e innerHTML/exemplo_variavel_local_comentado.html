@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variavel local 1.1</title>
+  </head>
+  <body>
+    Digite seu nome:
+    <input id="ipt_nome" />
+
+    Digite seu e-mail:
+    <input id="ipt_email" />
+
+    <button onclick="cadastrar()">Cadastrar Pessoa</button>
+  </body>
+</html>
+<script>
+  /*
+    Variáveis representam valores armazenados temporariamente na memória do computador durante a execução de um processo. 
+    Elas permitem que você armazene dados e os reutilize em diferentes partes do seu código.
+    Seria "apelidar" alguma informação, a fim de facilitar a organização e manipulação do seu código.
+
+      Composição de uma variável:
+
+        var nome_variavel = "valor variável"
+
+          - var                é a palavra reservada que indica ao JS que a seguir será definida uma variável que irá armazenar algum valor temporariamente;
+          - nome_variavel      é o identificador da variável, como se fosse um apelido para a informação armazenada;
+          - =                  o sinal de igual indica que a seguir, será atribuído algum valor para essa variável armazenar;
+          - "valor variável"   é o valor que será atribuido a variável, podendo ser textos, números, etc; 
+  */
+
+  function cadastrar() {
+    var nome = ipt_nome.value;    // armazena na variável "nome" o valor inserido no campo com id "ipt_nome" 
+    var email = ipt_email.value;  // armazena na variável "email" o valor inserido no campo com id "ipt_email" 
+
+    alert("Seu nome é " + nome + " seu email é " + email); // utilizando a concatenação, exibe o valor armazenado nas variáveis "nome" e "email"      
+  }
+</script>

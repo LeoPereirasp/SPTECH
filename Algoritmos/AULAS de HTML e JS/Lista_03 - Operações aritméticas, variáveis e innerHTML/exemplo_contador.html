@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+
+    <div id="div_contagem">O contador está em: 0 </div>
+
+    <button onclick="decrementar()"> - </button>
+    <button onclick="incrementar()"> + </button>
+    
+</body>
+</html>
+
+<script>
+    var contador = 0;
+
+    function incrementar(){
+        contador = contador + 1;
+        div_contagem.innerHTML = "O contador está em..." + contador;    
+    }
+
+    function decrementar(){
+        contador = contador - 1;
+        div_contagem.innerHTML = `O contador está em...${contador}`;  
+    }
+</script>

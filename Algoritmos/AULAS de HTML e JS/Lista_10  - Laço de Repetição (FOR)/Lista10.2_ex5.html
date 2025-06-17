@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café com Leite na Medida Certa</title>
+</head>
+<body>
+
+    Quantas xícaras de café com leite você já bebeu?
+    <input type="number" id="input_quant">
+
+    <br><br>
+
+    <button onclick="Verificar()">Ver a Quantidade</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar() {
+        var qtd = Number(input_quant.value);
+        var leite = 0;
+        var cafe = 0;
+
+        for (var contador = 1; contador <= qtd; contador++) {
+            leite += 1;
+            cafe += 2;
+        }
+
+        var mensagem = `Você usou ${leite} colheres de leite em pó e ${cafe} colheres de café em pó.`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

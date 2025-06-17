@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <label>Digite a quantidade de Marinheiros:</label>
+    <input type="text" id="ipt_qtd_marinheiros">
+    <br>
+    <label>Digite a quantidade de Carne:</label>
+    <input type="text" id="ipt_qtd_carne">
+    <br>
+    <label>Digite a quantidade de Batalhas:</label>
+    <input type="text" id="ipt_qtd_batalhas">
+    <br>
+    <button onclick="batalhar()">Batalhar!</button>
+    <div id="div_resultado"></div>
+</body>
+<script>
+    function batalhar(){
+        var qtdMarinheiros = Number(ipt_qtd_marinheiros.value);
+        var qtdCarnes = Number(ipt_qtd_carne.value);
+        var qtdBatalhas = Number(ipt_qtd_batalhas.value);
+        var qtdEnergia = 100;
+
+        var fraseFinal = "";
+
+
+        for(var i = 1; i <= qtdBatalhas; i++){
+            fraseFinal += `<br> ---- Iniciando a ${i}ª batalha ---- <br>`
+
+            //Antes de tirar 10, valide a energia:
+            if(qtdEnergia < 10 && qtdCarnes >0){
+                qtdEnergia = 100;
+                qtdCarnes--;
+                fraseFinal += `Recuperando energia no inicio da batalha!`
+            }
+
+            if(i > 1){
+                fraseFinal += `<br> Você passou da 1ª batalha e perdeu 10 de energia <br>`
+                qtdEnergia = 100 - 10 * i;
+            }
+
+            for(var j = 1; j <= qtdMarinheiros; j++){
+                fraseFinal += `<br> Tentanto matar o ${j}º marinheiro <br>
+                Energia: ${qtdEnergia} - Carnes: ${qtdCarnes} <br>`
+
+                if(qtdEnergia >= 5){
+                    fraseFinal += `Matei o ${j}º marinheiro <br>`
+                    qtdEnergia -= 5;
+                }else{
+                    if(qtdCarnes > 0){
+                        qtdEnergia = 100;
+                        qtdCarnes --;
+                        fraseFinal += `Você ficou sem energia, mas comeu uma carne e recuperou! <br>`
+                    }else{
+                        fraseFinal += `Sem energias e carnes, fim da linha! <br>`
+                        break;
+                        //ou:
+                        //j = qtdMarinheiros + 1;
+                    }
+
+                }
+
+            }
+        }
+
+        div_resultado.innerHTML = fraseFinal;
+
+    }
+</script>
+</html>

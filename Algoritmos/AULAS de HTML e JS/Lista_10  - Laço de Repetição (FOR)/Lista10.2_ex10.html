@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fases da Vida</title>
+</head>
+<body>
+
+  Informe sua idade:<br>
+  <input type="number" id="input_idade" oninput="Verificar()">
+
+  <br><br>
+
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+  function Verificar() {
+    var idade = Number(input_idade.value);
+    var mensagem = "";
+
+    for (var contador = 0; contador <= idade; contador++) {
+      var fase = "";
+
+      if (contador <= 4) {
+        fase = "Primeira Infância";
+      } else if (contador <= 6) {
+        fase = "Pré-escolar";
+      } else if (contador <= 10) {
+        fase = "Segunda Infância";
+      } else if (contador <= 18) {
+        fase = "Adolescência";
+      } else if (contador <= 50) {
+        fase = "Adulto";
+      } else if (contador <= 100) {
+        fase = "Melhor idade";
+      } else {
+        fase = "Matusalém";
+      }
+
+      mensagem += `${contador} anos (${fase})<br>`;
+    }
+
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Caixeiro Viajante</title></head>
+<body>
+  <h2>7. Caixeiro Viajante</h2>
+  <input type="number" id="num7" placeholder="Cidades de 2 a 10">
+  <button onclick="calcularRotas()">Calcular Rotas</button>
+  <div id="resultado7"></div>
+
+  <script>
+    function fatorial(n) {
+      let f = 1;
+      for (let i = 2; i <= n; i++) f *= i;
+      return f;
+    }
+
+    function calcularRotas() {
+      const cidades = parseInt(document.getElementById("num7").value);
+      const res = document.getElementById("resultado7");
+
+      if (cidades < 2 || cidades > 10) {
+        res.innerHTML = "Digite entre 2 e 10 cidades.";
+        return;
+      }
+
+      const possibilidades = fatorial(cidades);
+      res.innerHTML = `Total de possibilidades de rotas para ${cidades} cidades: ${possibilidades}`;
+    }
+  </script>
+</body>
+</html>

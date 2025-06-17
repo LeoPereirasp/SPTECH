@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta de Economia</title>
+</head>
+<body>
+
+    <p>Qual sua meta de Economia?</p>
+    <input type="number" id="input_meta">
+
+    <br><br>
+
+    <p>Quanto você já tem guardado?</p>
+    <input type="number" id="input_guardado">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar economia</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var meta = Number(input_meta.value);
+        var guardado = Number(input_guardado.value);
+
+        if (guardado >= meta) {
+            var excesso = guardado - meta;
+            div_mensagem.innerHTML = "Parabéns, meta alcançada!";
+            if (excesso > 0) {
+                div_mensagem.innerHTML += "<br>Meta ultrapassada em " + excesso + " reais.";
+            }
+            div_mensagem.style.color = "green";
+        } else {
+            var falta = meta - guardado;
+            div_mensagem.innerHTML = "Força! Ainda em busca da meta! Falta " + falta + " reais.";
+            div_mensagem.style.color = "blue";
+        }
+    }
+</script>
+

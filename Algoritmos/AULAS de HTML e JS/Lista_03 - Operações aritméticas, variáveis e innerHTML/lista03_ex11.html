@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    Informe um número:
+
+    <br><br> 
+    
+    <input type="text" id="input_tabuada">
+    
+    <button onclick="calcular()">Ver tabuada</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        var X = Number (input_tabuada.value)
+        
+        div_mensagem.innerHTML = 
+       `${X}x1 = ${X * 1} <br>
+        ${X}x2 = ${X * 2} <br>
+        ${X}x3 = ${X * 3} <br>
+        ${X}x4 = ${X * 4} <br>
+        ${X}x5 = ${X * 5} <br>
+        ${X}x6 = ${X * 6} <br>
+        ${X}x7 = ${X * 7} <br>
+        ${X}x8 = ${X * 8} <br>
+        ${X}x9 = ${X * 9}`
+    }
+
+</script>

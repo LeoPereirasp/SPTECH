@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="exibir()">Exibir</button>
+  <button onclick="apagar()">Apagar</button>
+  <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+  function exibir() {
+    div_mensagem.innerHTML = "<h2 style='color: blue'>Mensagem 1</h2><br>";
+    div_mensagem.innerHTML += "<span style='color: red'>Mensagem 2</span><br>";
+    div_mensagem.innerHTML += "<button>Botão dinâmico</button>"
+  }
+
+  function apagar() {
+    div_mensagem.innerHTML = "";
+  }
+</script>

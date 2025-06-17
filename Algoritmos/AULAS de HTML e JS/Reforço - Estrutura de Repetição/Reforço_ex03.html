@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Soma Pares</title></head>
+<body>
+  <h2>3. Soma de Pares</h2>
+  <input type="number" id="num3" placeholder="Digite de 10 a 500">
+  <button onclick="somarPares()">Somar Pares</button>
+  <div id="resultado3"></div>
+
+  <script>
+    function somarPares() {
+      const num = parseInt(document.getElementById("num3").value);
+      const res = document.getElementById("resultado3");
+      if (num < 10 || num > 500) {
+        res.innerHTML = "Número deve estar entre 10 e 500.";
+        return;
+      }
+      let soma = 0, pares = [];
+      for (let i = 0; i <= num; i += 2) {
+        pares.push(i);
+        soma += i;
+      }
+      res.innerHTML = `<strong>Pares:</strong><br>${pares.join(", ")}<br><br>Soma dos pares: ${soma}`;
+    }
+  </script>
+</body>
+</html>

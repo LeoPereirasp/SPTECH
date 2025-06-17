@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Paulistas</title>
+</head>
+<body>
+
+    Informe o time Paulista que você torce:
+    <input type="text" id="input_time">
+
+    <br><br>
+
+    <button onclick="Analisar()"> Fale sobre este Time </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Analisar(){
+        var time = input_time.value;
+
+        if(time == 'São Paulo'){
+            div_mensagem.innerHTML = `<p style = "color: red; background: black;"> Salve o Tricolor paulista! </p>`;
+        } else if (time == 'Santos'){
+            div_mensagem.innerHTML = `<p style = "color: black; background: white;">Agora quem dá a bola é o Santos! </p>`;
+        } else if (time == 'Palmeiras'){
+            div_mensagem.innerHTML = `<p style = "color: green; background: white;">Salve o alviverde imponente! </p>`;
+        } else if (time == 'Corinthians'){
+            div_mensagem.innerHTML = `<p style = "color: white; background: black;">Salve o Corinthians! </p>`;
+        } else {
+            div_mensagem.innerHTML = `<p style = "color: red; background: black;">Informe um time GRANDE paulista(São Paulo, Santos, Palmeiras e Corinthians) </p>`;
+        }
+    }
+</script> 

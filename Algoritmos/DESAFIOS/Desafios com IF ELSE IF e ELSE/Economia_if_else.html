@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas</title>
+</head>
+<body>
+    
+    Qual a sua meta de economia?
+    <input type="number" id="input_meta">
+
+    <br><br>
+
+    Quanto você já conseguiu economizar?
+    <input type="number" id="input_guardado">
+
+    <br><br>
+
+    Em quantos meses você planeja para atingir sua meta?
+    <input type="number" id="input_meses">
+
+    <br><br>
+
+    Quanto você pretende economizar por mês?
+    <input type="number" id="input_valorpmes">
+
+    <br><br>
+
+    <button onclick="Analisar()">Analisar Economia</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function Analisar(){
+        var meta = Number(input_meta.value);
+        var guardado = Number(input_guardado.value);
+        var meses = Number(input_meses.value);
+        var pormes = Number(input_valorpmes.value);
+        var ultrapassado = Number(guardado - meta);
+        var falta = meta - guardado;
+        var totalEconomizado = guardado + (pormes * meses);
+        var adicionalPorMes = (meta - guardado) / meses - pormes;
+        var faltaTotal = meta - totalEconomizado;
+        
+        if (guardado >= meta) {
+            div_mensagem.innerHTML += "Parabéns, meta alcançada!<br><br>";
+            if (guardado > meta) {
+                div_mensagem.innerHTML += "Meta ultrapassada em R$" + ultrapassado + "<br><br>";
+            }
+        } else {
+            
+            div_mensagem.innerHTML += "Força! Ainda em busca da meta! Falta R$" + falta + "<br><br>";
+        }
+
+        if (totalEconomizado < meta) {
+            if (adicionalPorMes > 0) {
+                div_mensagem.innerHTML += "Você precisa economizar R$" + adicionalPorMes + " a mais por mês para atingir a meta dentro do prazo!<br><br>";
+            }
+            div_mensagem.innerHTML += "Falta R$" + faltaTotal + " para atingir a meta até o final do prazo.";
+        }    
+    }
+</script>

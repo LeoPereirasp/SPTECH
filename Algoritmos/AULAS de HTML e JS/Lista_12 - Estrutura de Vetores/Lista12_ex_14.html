@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Histórico de Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background: #eef2f3;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    #historico {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registro de Números</h2>
+
+  <input type="number" id="numero" placeholder="Digite um número qualquer" />
+  <button onclick="analisarHistorico()">Analisar histórico</button>
+
+  <div id="historico"></div>
+
+  <script>
+    const numeros = [];
+
+    function analisarHistorico() {
+      const input = document.getElementById('numero');
+      const valor = parseFloat(input.value);
+
+      if (!isNaN(valor)) {
+        numeros.push(valor);
+        input.value = "";
+        input.focus();
+
+        let historico = "";
+        let maior = numeros[0];
+        let menor = numeros[0];
+
+        for (let i = 0; i < numeros.length; i++) {
+          historico += `${i + 1}º Número: ${numeros[i]}<br>`;
+          if (numeros[i] > maior) maior = numeros[i];
+          if (numeros[i] < menor) menor = numeros[i];
+        }
+
+        historico += `<br><strong>Maior:</strong> ${maior}<br><strong>Menor:</strong> ${menor}`;
+        document.getElementById('historico').innerHTML = historico;
+      }
+    }
+  </script>
+
+</body>
+</html>

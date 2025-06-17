@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pares no Intervalo   </title>
+</head>
+<body>
+
+    Informe o número que deve iniciar a contagem:
+    <input type="number" id="input_inicio">
+
+    <br><br>
+
+    Informe um número que deve finalizar a contagem:
+    <input type="number" id="input_final">
+
+    <br><br>
+
+    <button onclick="Contar()"> S2 Pares </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Contar(){
+        var inicio = input_inicio.value;
+        var final = input_final.value;
+
+        div_mensagem.innerHTML="";
+
+        while ( inicio <= final ){
+            var resto = inicio % 2;
+
+            if( resto == 0){
+                div_mensagem.innerHTML += `${ inicio } <br>`;
+            }
+            inicio ++;
+        }
+    }
+</script>

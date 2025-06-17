@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Repetitiva</title>
+</head>
+<body>
+    
+    <button onclick="Contar()">Diga algo sobre a matéria de Algoritmos</button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Contar() {
+        var mensagem = "";
+
+        for (var contador = 1; contador <= 7; contador++) {
+            mensagem += `Uma das melhores aulas que tem, gosto das listas.<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

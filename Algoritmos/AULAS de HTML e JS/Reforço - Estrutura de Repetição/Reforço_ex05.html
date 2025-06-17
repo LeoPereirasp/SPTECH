@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><title>Estatísticas</title></head>
+<body>
+  <h2>5. Estatísticas de Divisibilidade</h2>
+  <input type="number" id="inferior" placeholder="Limite inferior (>1)">
+  <input type="number" id="superior" placeholder="Limite superior (<100)">
+  <input type="number" id="divisor" placeholder="Número entre 3 e 10">
+  <button onclick="contar()">Contar</button>
+  <div id="resultado5"></div>
+
+  <script>
+    function contar() {
+      const inf = parseInt(document.getElementById("inferior").value);
+      const sup = parseInt(document.getElementById("superior").value);
+      const div = parseInt(document.getElementById("divisor").value);
+      const res = document.getElementById("resultado5");
+
+      if (inf <= 1 || sup >= 100 || sup <= inf || div < 3 || div > 10) {
+        res.innerHTML = "Verifique os valores digitados.";
+        return;
+      }
+
+      let numeros = [], soma = 0;
+      for (let i = inf; i <= sup; i++) {
+        if (i % div === 0) {
+          numeros.push(i);
+          soma += i;
+        }
+      }
+
+      let qtd = numeros.length;
+      let media = (soma / qtd).toFixed(2);
+      let maior = Math.max(...numeros);
+      let menor = Math.min(...numeros);
+
+      res.innerHTML = `Números divisíveis por ${div}:<br>${numeros.join(", ")}<br><br>
+      QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtd}<br>
+      SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}<br>
+      MÉDIA DOS NÚMEROS EXIBIDOS: ${media}<br>
+      MAIOR NÚMERO EXIBIDO: ${maior}<br>
+      MENOR NÚMERO EXIBIDO: ${menor}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Frase Numerada </title>
+</head>
+<body>
+
+    Digite uma frase:
+    <input type="text" id="input_frase">
+
+    <br><br>
+    
+    <button onclick="Contar()"> Diga algo sobre a matéria de Algoritmos </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Contar(){
+        var frase = input_frase.value;
+        var contador = 0;
+
+        div_mensagem.innerHTML="";
+
+        while (contador < 7){
+        contador ++; 
+            div_mensagem.innerHTML += `${ contador}. ${ frase} <br> `;
+        }
+        
+    }
+</script>

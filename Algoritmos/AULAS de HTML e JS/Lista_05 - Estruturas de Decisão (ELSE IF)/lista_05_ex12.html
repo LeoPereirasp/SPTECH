@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Como você está se sentindo hoje?
+    <input type="text" id="input_sentimento">
+
+    <br><br>
+
+    <button onclick="Verificar()">  Mostrar Humor </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <br><br>
+
+    <img src="" id="imagem" style="display:none; width:200px;">
+
+</body>
+</html>
+
+
+<script>
+    function Verificar(){
+        var sentimento = input_sentimento.value;
+
+        if ( sentimento == "Feliz"){
+            imagem.src = "imagens/feliz.jpeg"; 
+        } else if( sentimento == "Triste"){
+            imagem.src = "imagens/triste.jpeg"; 
+        } else if ( sentimento == "Bravo"){
+            imagem.src = "imagens/bravo.jpeg"; 
+        } else if ( sentimento == "Surpreso"){
+            imagem.src = "imagens/surpreso.jpeg"; 
+        } else if ( sentimento == "Cansado"){
+            imagem.src = "imagens/cansado.jpeg"; 
+        } 
+        imagem.style.display = "block";
+    }
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio</title>
+</head>
+<body>
+  <p>Quantidade de produtos:</p>
+  <input type="number" id="ipt_quantidade_produtos">
+  <p>Valor total (em reais):</p>
+  <input type="number" id="ipt_valor_total"><br><br>
+  <span>Cliente VIP:</span>
+  <input type="checkbox" id="ipt_cliente_vip"><br><br>
+  <button onclick="validarDesconto()">Validar desconto</button>
+  <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+  function validarDesconto() {
+    var quantidadeProdutos = Number(ipt_quantidade_produtos.value);
+    var valorTotal = Number(ipt_valor_total.value);
+    var clienteVip = ipt_cliente_vip.checked;
+
+    var desconto = 0;
+    var recompensa = 0;
+
+    if (quantidadeProdutos > 5) {
+
+      if (quantidadeProdutos > 10 && valorTotal > 1000 && clienteVip == true) {
+        desconto += 15;
+      }
+
+      if ((quantidadeProdutos > 10 && valorTotal > 500) || clienteVip) {
+        desconto += 10;
+      }
+
+      if ((quantidadeProdutos >= 6 && quantidadeProdutos <= 10 && valorTotal > 200) 
+          || clienteVip) {
+            desconto += 5;
+        }
+
+      if (quantidadeProdutos > 5 && valorTotal > 200 || clienteVip) {
+        recompensa += 50;
+      }
+
+      if (quantidadeProdutos > 10 && valorTotal > 500) {
+        recompensa += 100;
+      }
+    }
+
+    div_mensagem.innerHTML = `Você recebeu ${desconto}% de desconto na sua compra.`;
+    div_mensagem.innerHTML += `Você recebeu ${recompensa} pontos.`;
+  }
+</script>

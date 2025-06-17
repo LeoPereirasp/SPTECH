@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Viva de Filmes</title>
+</head>
+<body>
+
+    Nome do filme favorito:
+    <input type="text" id="input_filme">
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+
+    <br><br>
+
+    <div id="div_lista"></div>
+
+    <script>
+        var lista_filmes = [];
+
+        function cadastrarFilme() {
+            var filme = input_filme.value;
+
+            if (filme != "") {
+                lista_filmes.push(filme);
+                filme = "";
+                mostrarLista();
+            }
+        }
+
+        function mostrarLista() {
+            var listaHTML = "Filmes cadastrados:<br>";
+            for (var i = 0; i < lista_filmes.length; i++) {
+                listaHTML += `${i + 1}. ${lista_filmes[i]}<br>`;
+            }
+
+            div_lista.innerHTML = listaHTML;
+        }
+    </script>
+
+</body>
+</html>

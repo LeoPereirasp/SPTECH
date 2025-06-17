@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Recarga Fidelidade Metrô</title>
+</head>
+<body>
+    
+    Informe a Quantidade de passagens que deseja adquirir:
+    <input type="number" id="input_quant">
+
+    <br><br>
+
+    <button onclick="Verificar()"> Comprar </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+        var quant = input_quant.value;
+        var passagem = quant * 4.40;
+
+        if( quant >= 8 && quant <= 50){
+            if(quant >= 8 && quant <= 19){
+                passagem = passagem - (passagem * 0.03);
+            } else if ( quant >=20 && quant <=49){
+                passagem = passagem - (passagem * 0.05);
+            } else if( quant == 50){
+                passagem = passagem - (passagem * 0.07);
+            }
+
+            div_mensagem.innerHTML=`Total a pagar: R$${passagem}`;
+        } else{
+            alert("Quantidade inválida para o Fidelidade!");
+        }
+    }
+</script>

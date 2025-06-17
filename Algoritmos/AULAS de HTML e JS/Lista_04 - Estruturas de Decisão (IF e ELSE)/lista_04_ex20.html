@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Elevador</title>
+</head>
+<body>
+
+    Homens: <input type="number" id="input_homem"><br><br>
+    Mulheres: <input type="number" id="input_mulher"><br><br>
+
+    <button onclick="Verificar()">Ligar elevador</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function Verificar() {
+        var homens = input_homem.value;
+        var mulheres = input_mulher.value;
+        var pesoTotal = (homens * 90) + (mulheres * 70);
+
+        if (pesoTotal <= 500) {
+            div_mensagem.innerHTML = "Elevador vai se mover, pois está com " + pesoTotal + "kg";
+            div_mensagem.style.color = "green";
+        } else {
+            var excesso = pesoTotal - 500;
+            div_mensagem.innerHTML = "Alguém precisa descer. Precisa perder " + excesso + "kg.";
+            div_mensagem.style.color = "red";
+        }
+    }
+</script>

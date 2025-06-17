@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota do Aluno</title>
+</head>
+<body>
+
+    <button onclick="Sortear()">Sortear Nota para Aluno</button>
+    
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function Sortear(){
+        var mensagem = "";
+        var aleatorio = Math.random() * 10; 
+        var nota = aleatorio.toFixed(1);    
+
+        mensagem = "Nota sorteada: " + nota;
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

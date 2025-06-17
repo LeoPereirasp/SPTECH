@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Simulador de Preferências de Compras: </title>
+</head>
+<body>
+
+    Informe o tamanho do celular:
+    <input type="number" id="input_tamanho">
+
+    <br><br>
+
+    <select id="select_cor">
+        <option value="1"> Preto </option>
+        <option value="2"> Prata </option>
+        <option value="3"> Azul </option>
+        <option value="4"> Vermelho </option>
+    </select>
+
+    <br><br>
+
+    <button onclick="Verificar()"> Será que ele gosta? </button>
+
+    <br><br>
+
+    <div id="div_mensagem"></div>
+
+    <br><br>
+
+    <img src="" id="imagem" style="display:none; width:200px;">
+
+
+</body>
+</html>
+
+<script>
+    function Verificar(){
+    var tela = input_tamanho.value;
+    var cor = select_cor.value;
+
+    if( tela >= 6.5 && cor == "1" || cor == "2"){
+        imagem.src = "imagens/feliz.jpeg"; 
+    } else{
+        imagem.src = "imagens/decepcionado.jpeg"; 
+    }
+    imagem.style.display = "block";
+}
+</script>

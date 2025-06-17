@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Joguinho </title>
+</head>
+<body>
+
+    <button onclick="Sortear()"> Jogar </button>
+    
+    <br><br>
+    
+    <div id="placar">
+        Jogador 1: 0 <br>
+        Jogador 2: 0 <br>
+        Empate: 0 <br>
+    </div>
+    
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    var jogador1 = 0;
+    var jogador2 = 0;
+    var empate = 0;
+
+    function Sortear() {
+        var dadoJogador1 = Math.floor(Math.random() * 6) + 1;
+        var dadoJogador2 = Math.floor(Math.random() * 6) + 1;
+ 
+        if (dadoJogador1 > dadoJogador2) {
+            jogador1++;
+        } else if (dadoJogador2 > dadoJogador1) {
+            jogador2++;
+        } else {
+            empate++;
+        }
+
+        placar.innerHTML = `
+            Jogador 1: ${jogador1} <br>
+            Jogador 2: ${jogador2} <br>
+            Empate: ${empate} <br>
+        `;
+
+        var mensagem = "";
+        if (jogador1 > jogador2) {
+            mensagem = "O jogador 1 está vencendo!";
+        } else if (jogador2 > jogador1) {
+            mensagem = "O jogador 2 está vencendo!";
+        } else {
+            mensagem = "O jogo está empatado!";
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

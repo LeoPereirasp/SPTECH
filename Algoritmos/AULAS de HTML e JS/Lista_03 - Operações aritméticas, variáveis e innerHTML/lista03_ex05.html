@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+</head>
+<body>
+    
+    Nome:
+    <input type="text" id="input_nome">
+
+    <br><br>
+
+    Avaliação continuada: 
+    <input type="number" id="input_continuada">
+
+    <br><br>
+
+    Avaliação Semestral:
+    <input type="number" id="input_semestral">
+
+    <br><br>
+
+    <button onclick="calcular()"> Média </button>
+    
+</body>
+</html>
+
+<script>
+   
+    function calcular(){
+    var ac = Number(input_continuada.value);
+    var as = Number(input_semestral.value);
+    var nome = input_nome.value;
+    var media1 = ac * 0.4;
+    var media2 = as * 0.6;
+    var total = media1 + media2;
+        alert("A média de " + nome + " será de " + total );
+    }
+</script>

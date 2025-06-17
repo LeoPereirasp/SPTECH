@@ -1,0 +1,44 @@
+
+	.card {
+		width: 500px;
+		height: fit-content;
+		background-color: #d7e5f1;
+		border-radius: 25px;
+		border: solid 2px #091a53;
+		margin: 20px;
+		padding: 20px
+	}
+
+	.perfil-imagem {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		margin: 20px
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.estilo-texto-padrao {
+		padding: 20px;
+		font-family: arial;
+	}
+
+	h1 {
+		font-size: 30px;
+		margin: 0;
+	}
+
+	span {
+		color: #091a53;
+	}
+
+	.estilo-texto-padrao p span {
+		font-style: italic;
+	}
+
+	#mensagem {
+		font-size: 15px;
+	}

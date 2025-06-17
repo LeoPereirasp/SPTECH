@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Produto: 
+    <input id="input_produto" type="text">
+    <button onclick="adicionar()">Adicionar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista_produtos = []; // inicia uma lista vazia
+    // var lista_produtos = ["pente", "caneta"] // inicia uma lista contendo dois textos
+
+    function adicionar() {
+        var produto = input_produto.value;
+
+        lista_produtos.push(produto); // adiciona o produto na última posição do vetor, gerando um novo registro
+
+        div_mensagem.innerHTML = `${lista_produtos}<br><br>`; // exibe a lista completa, padronizada pelo "toString()" do vetor
+
+        // percorrendo a lista do índice 0 até o último índice válido, de acordo com o tamanho do vetor (length)
+        for (var i = 0; i < lista_produtos.length; i++) {
+            div_mensagem.innerHTML += `${i}. ${lista_produtos[i]} <br>`; // exibe o produto que está na posição [i] da lista
+        }
+    }
+</script>

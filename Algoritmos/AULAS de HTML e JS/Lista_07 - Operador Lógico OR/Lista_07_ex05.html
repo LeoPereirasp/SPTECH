@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Desconforto Térmico</title>
+</head>
+<body>
+    
+    Informe a Temperatura atual: 
+    <input type="text" id="input_temp">
+
+    <br><br>
+
+    <button onclick="Analisar()"> Analisar Clima </button>
+
+</body>
+</html>
+
+<script>
+
+    function Analisar() {
+
+        var temperatura = Number(input_temp.value);
+
+        if(temperatura >= 21 || temperatura <= 24){
+            alert('Alerta de desconforto!');
+        }
+        if(temperatura < 21) {
+            alert('As pessoas vão ter hipotermia');
+        } else if(temperatura > 24) {
+            alert('As pessoas vão derreter');
+        }
+    }
+
+</script>

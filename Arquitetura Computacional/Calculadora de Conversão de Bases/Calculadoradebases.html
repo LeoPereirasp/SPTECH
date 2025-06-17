@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Homero e Leo </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="center">
+            <h1 class="title"> Conversor de Bases </h1>
+
+            <input class="input" id="demo1" type="text" placeholder="Digite um número decimal:">
+
+            <select class="input" id="section_numero">
+                <option value="1">Octal</option>
+                <option value="2">Hexadecimal</option>
+                <option value="3">Binário</option>
+            </select>
+
+            <button class="button" onclick="converter()">Converter</button>
+
+            <div class="title" id="div_mensage"></div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function converter() {
+        var decimal = Number(demo1.value);
+        var base = (section_numero.value);
+
+        if (isNaN(decimal)) {
+            alert("Por favor, insira um NÚMERO válido.");
+            div_mensage.innerHTML = "Valor inválido";
+        }
+        else if (base == "1") {
+            div_mensage.innerHTML = decimal.toString(8);
+        } else if (base == "2") {
+            div_mensage.innerHTML = decimal.toString(16);
+        } else if (base == "3") {
+            div_mensage.innerHTML = decimal.toString(2);
+        } 
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Saldo:
+    <input type="text" id="input_saldo">
+
+    <br><br>
+
+    Débito:
+    <input type="text" id="input_debito">
+
+    <br><br>
+
+    <button onclick="analisar()">Analisar conta</button>
+    
+    <br><br>
+
+    <div id="div_mensagem"></div>
+    
+
+</body>
+</html>
+
+<script>
+
+    function analisar() {
+        var saldo = Number(input_saldo.value);
+        var debito = Number(input_debito.value);
+        var saldoFinal = saldo - debito;
+
+        if (saldoFinal >= 0) {
+            div_mensagem.innerHTML = `<i style="color:blue;">o saldo atual da conta corrente é ${saldoFinal}.</i>`;
+        } else {
+            div_mensagem.innerHTML = `<b style="color:red;">o saldo atual da conta corrente é ${saldoFinal}.</b>`;
+        }
+    }
+
+</script>

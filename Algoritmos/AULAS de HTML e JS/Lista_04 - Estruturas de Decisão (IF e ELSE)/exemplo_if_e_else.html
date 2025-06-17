@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Informe sua idade:
+    <input id="ipt_idade" type="number">
+
+    <button onclick="calcular()">Votar</button>
+
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        var idade = Number(ipt_idade.value);
+
+        if (idade >= 18) {
+            alert("Você ja pode votar")
+        } else {
+            alert("Você ainda não pode votar")
+        }
+    }
+
+</script>

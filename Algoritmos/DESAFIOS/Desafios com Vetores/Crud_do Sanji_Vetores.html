@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD do Sanji</title>
+</head>
+<body>
+    <h2>Cadastrar estoque de comida</h2>
+
+    <p>Qual a comida?</p>
+    <input type="text" id="ipt_comidaInserida">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="Verificar()">Verificar quantidade</button>
+    <div id="div_resultado"></div>
+
+    <h2>Controlar estoque</h2>
+
+    <p>Digite o nome de uma comida:</p>
+    <input type="text" id="ipt_pesquisar">
+    <button onclick="pesquisar()">pesquisar</button>
+    <button onclick="exibir()">Exibir estoque</button>
+    <div id="div_pesquisa"></div>
+
+    <h2>Alterar estoque</h2>
+
+    <p>Informe o nome antigo</p>
+    <input type="text" id="ipt_antNome">
+
+    <p>Informe o novo nome</p>
+    <input type="text" id="ipt_novoNome">
+    <button onclick="alterar()">Alterar nome</button>
+    <div id="div_alterar"></div>
+
+    <h2>Deletar do estoque</h2>
+
+    <p>Informe o nome a remover</p>
+    <input type="text" id="ipt_deletar">
+    <button onclick="deletar()">Remover comida</button>
+    <div id="div_remover"></div>
+</body>
+</html>
+
+<script>
+    comidas = [];
+
+    function cadastrar(){
+        var comida = ipt_comidaInserida.value;
+
+        comidas.push(comida)
+    }
+
+    function Verificar(){
+        var tamanhoComida = comidas.length;
+        console.log(tamanhoComida)
+
+        if(tamanhoComida < 3){
+            div_resultado.innerHTML = `Desse jeito, o Luffy devora até o navio`
+        } else if(tamanhoComida >= 3 && tamanhoComida <= 7){
+            div_resultado.innerHTML = `O comilão do Luffy não vai deixar sobrar nenhuma comida`
+        } else if(tamanhoComida >= 8 && tamanhoComida <= 10){
+            div_resultado.innerHTML = `Assim, talvez sobre um pouco para a tripulação`
+        } else if(tamanhoComida > 10){
+            div_resultado.innerHTML = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`
+        }
+    }
+
+    function pesquisar(){
+        var indice = ipt_pesquisar.value;
+        var tamanhoComida = comidas.length;
+        let unidade = 0;
+
+        for(var i = 0; i <= tamanhoComida; i++){
+            if(indice == comidas[i]){
+                unidade++;
+            }
+        }
+
+        if(unidade != 0){
+            div_pesquisa.innerHTML = `Temos a comida ${indice} e há ${unidade} unidade(s) dela`
+        } else {
+            div_pesquisa.innerHTML = `Alguém vai ter que comprar ${indice}, tá fazendo falta..`
+        }
+    }
+
+    function exibir(){
+        var tamanhoComida = comidas.length;
+        let unidade = 0;
+
+        for(var i = 0; i < tamanhoComida; i++){
+            unidade = 0;
+
+            for(var j = 0; j < tamanhoComida; j++){
+                if(comidas[i] == comidas[j]){
+                    unidade++;
+                } 
+            }
+
+            if(i == 0 || comidas[i] != comidas[i - 1]){
+                div_pesquisa.innerHTML += `<br>-${comidas[i]}(${unidade})`
+
+            }
+        }
+    }
+
+    function alterar(){
+        var tamanhoComida = comidas.length;
+        var antigonome = ipt_antNome.value;
+        var novoNome = ipt_novoNome.value;
+
+        for(var i = 0; i < tamanhoComida; i++){
+            if(antigonome == comidas[i]){
+                comidas[i] = novoNome
+                div_alterar.innerHTML = `A comida '${antigonome}' foi alterada para '${novoNome}'`
+            } else{
+                div_alterar.innerHTML = `A comida '${antigonome}' não foi encontrada no estoque.`
+            }
+        }
+    }
+
+    function deletar(){
+        var tamanhoComida = comidas.length;
+        var remover = ipt_deletar.value;
+
+        for(var i = 0; i < tamanhoComida; i++){
+            if(remover == comidas[i]){
+                comidas.splice(i, 1);
+                div_remover.innerHTML = `A comida '${remover}' foi removida do estoque`
+            } else {
+                div_remover.innerHTML = `A comida '${remover}' nõ está no estoque`
+            }
+        }
+
+    }
+</script>
