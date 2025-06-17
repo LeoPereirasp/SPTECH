@@ -75,5 +75,5 @@ Este repositório é mais do que um agrupamento de arquivos: é o reflexo de uma
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <strong>Leonardo Gonçalves Pereira</strong></p>
+  <p>Made in <strong>Leonardo Gonçalves Pereira</strong></p>
 </div>
